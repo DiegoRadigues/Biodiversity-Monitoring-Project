@@ -1,4 +1,7 @@
+##### Arthur DUFOUR, Ange SIMPALINGABO, Diego de RADIGUES
+
 # Filtrage passe-bande
+
 
 ## Fréquence de coupure
 
@@ -102,4 +105,5 @@ Pour obtenir un spectrogramme de qualité :
     spectrogramme.
 -   La fonction de fenêtrage réduit les discontinuités et améliore
     l'analyse.
+
 
