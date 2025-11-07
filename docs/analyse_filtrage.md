@@ -44,13 +44,16 @@ microcontrôleurs ne traitent que des nombres. Un signal continu
 numériquement. La discrétisation permet donc de le rendre traitable par
 des algorithmes numériques.
 
-## SFT (Short-Time Fourier Transform)
+## DFT 
 
 Après avoir discrétisé le signal, on applique une DFT pour passer du
 domaine temporel au domaine fréquentiel. Cela permet d'identifier les
 fréquences présentes dans le signal et leur amplitude. On remarque que
 la DFT donne les fréquences présentes et leurs amplitudes mais qu'elle
 perd l'information temporelle.
+
+<img width="1532" height="472" alt="DFT" src="https://github.com/user-attachments/assets/20435296-0bbf-4523-9a7c-81ba2705a184" />
+
 
 ## STFT
 
@@ -64,6 +67,9 @@ La STFT repose sur le fenêtrage : on multiplie le signal par une fenêtre
 (Hamming, Hann, etc.) pour isoler un petit segment, puis on applique la
 DFT sur ce segment pour obtenir le spectre local.
 
+<img width="904" height="832" alt="STFT" src="https://github.com/user-attachments/assets/c0b05712-804f-479d-b7d7-e14d466d7351" />
+
+
 ------------------------------------------------------------------------
 
 ## Paramètres essentiels du fenêtrage
@@ -76,6 +82,9 @@ DFT sur ce segment pour obtenir le spectre local.
 -   En pratique, fenêtre = trame est souvent suffisant.
 -   On applique généralement un **recouvrement** pour éviter les
     discontinuités entre fenêtres.
+
+    <img width="1180" height="734" alt="recouvrement" src="https://github.com/user-attachments/assets/56bbb07b-9639-4652-bcc0-4243752ed918" />
+
 
 Formule :
 
@@ -93,3 +102,4 @@ Pour obtenir un spectrogramme de qualité :
     spectrogramme.
 -   La fonction de fenêtrage réduit les discontinuités et améliore
     l'analyse.
+
