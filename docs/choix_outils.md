@@ -15,14 +15,14 @@
 
 ## 2) Requirements Python (évoluera peut-être au fil du projet, à update)
 
-Fichier : **[../../requirements.txt](./requirements.txt)**
+Fichier : **[requirements.txt](../requirements.txt)**
 
 - `numpy`, `scipy` → calculs numériques, filtrage FIR, STFT.  
 - `librosa`, `soundfile` → I/O audio, MFCC, aides spectrogramme.  
 - `matplotlib` → figures (spectrogrammes, réponses en fréquence, overlays).  
 - `pandas` → tables `segments.csv` / `features.csv`.  
 - `scikit-learn` → stats de base et petites classifications si besoin.  
-- `tqdm`, `joblib`, `numba` → confort/performances (barres de progression, parallélisation légère, accélération de certaines fonctions).
+- `tqdm`, `joblib`, `numba` → confort/performances(outils)
 
 > Pas de deep learning mais sinon ça reste possible en python
 
@@ -31,10 +31,10 @@ Fichier : **[../../requirements.txt](./requirements.txt)**
 
 ## 3) Installation (Windows PowerShell)
 
-> À exécuter à la racine du projet : `PS C:\Users\diego\Biodiversity-Monitoring-Project>`
+> Exécuter à la racine du projet
 
 ```powershell
-# 1) Créer un environnement virtuel (évite les conflits système)
+# 1) Environnement virtuel
 python -m venv .venv
 
 # 2) Activer l'environnement
