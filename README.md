@@ -1,5 +1,8 @@
+![verdier-deurope](https://github.com/user-attachments/assets/ed3c5e9e-2d56-4fd4-8914-c0d80e39a733)
 #  Biodiversity Monitoring Project  
 Analyse automatique de chants d’oiseaux — Filtrage FIR, STFT & Spectrogrammes
+
+
 
 ##  Objectif
 
