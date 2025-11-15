@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+import pandas as pd
 
 # Ajouter la racine du projet dans sys.path pour trouver "src"
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -22,9 +23,16 @@ from src.io.load_audio import load_audio
 from src.io.save_audio import save_audio
 from src.signal.fir_bandpass import apply_fir_bandpass
 from src.signal.stft import compute_spectrogram, save_spectrogram_figure
+from src.detection.vad_spectral_flux import detect_activity
 
 
-def process_file(wav_path: Path) -> None:
+# Dossier des résultats de l'expérience
+EXPERIMENT_DIR = PROJECT_ROOT / "experiments" / "exp1"
+EXPERIMENT_DIR.mkdir(parents=True, exist_ok=True)
+SEGMENTS_CSV = EXPERIMENT_DIR / "segments.csv"
+
+
+def process_file(wav_path: Path, all_segments: list) -> None:
     print(f"\n=== Traitement : {wav_path} ===")
 
     # 1) Charger l'audio
@@ -67,8 +75,28 @@ def process_file(wav_path: Path) -> None:
         hop_length=STFT_HOP_LENGTH,
         out_path=fig_out_path,
     )
-
     print(f"  - spectrogramme sauvegardé -> {fig_out_path}")
+
+    # 6) Détection VAD (flux spectral)
+    segments = detect_activity(
+        y_filt,
+        sr=sr,
+        n_fft=STFT_N_FFT,
+        hop_length=STFT_HOP_LENGTH,
+        k=0.6,
+        min_duration_s=0.03,
+    )
+    print(f"  - {len(segments)} segments détectés")
+
+    # 7) Ajouter les segments à la liste globale
+    rel_str = str(rel_path)
+    for seg_id, (t_on, t_off) in enumerate(segments):
+        all_segments.append({
+            "file": rel_str,
+            "segment_id": seg_id,
+            "t_onset_s": t_on,
+            "t_offset_s": t_off,
+        })
 
 
 def main():
@@ -79,8 +107,19 @@ def main():
         return
 
     print(f"{len(wav_files)} fichiers .wav trouvés.")
+
+    all_segments = []
+
     for wav_path in wav_files:
-        process_file(wav_path)
+        process_file(wav_path, all_segments)
+
+    # Sauvegarder les segments
+    if all_segments:
+        df = pd.DataFrame(all_segments)
+        df.to_csv(SEGMENTS_CSV, index=False)
+        print(f"\nSegments sauvegardés dans : {SEGMENTS_CSV}")
+    else:
+        print("\nAucun segment détecté.")
 
 
 if __name__ == "__main__":

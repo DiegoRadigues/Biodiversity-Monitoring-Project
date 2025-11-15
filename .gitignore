@@ -8,7 +8,7 @@ __pycache__/
 # Données volumineuses/temporaires (
 data/processed/
 experiments/
-assets/figures/
+
 
 # Fichiers d'éditeur
 .vscode/
