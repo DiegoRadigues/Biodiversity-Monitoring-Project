@@ -118,27 +118,80 @@ def activity_to_segments(
     return segments
 
 
+def merge_segments(
+    segments: List[Tuple[float, float]],
+    min_gap_s: float = 0.10,
+    min_duration_s: float = 0.08,
+) -> List[Tuple[float, float]]:
+    """
+    Regroupe les segments trop proches dans le temps.
+
+    - Si l'écart entre la fin d'un segment et le début du suivant
+      est < min_gap_s, on les fusionne.
+    - Après fusion, on supprime les segments dont la durée < min_duration_s.
+    """
+    if not segments:
+        return []
+
+    segments = sorted(segments, key=lambda x: x[0])
+
+    merged: List[Tuple[float, float]] = []
+    cur_start, cur_end = segments[0]
+
+    for start, end in segments[1:]:
+        # si le prochain segment est très proche du courant -> fusion
+        if start - cur_end <= min_gap_s:
+            cur_end = max(cur_end, end)
+        else:
+            if (cur_end - cur_start) >= min_duration_s:
+                merged.append((cur_start, cur_end))
+            cur_start, cur_end = start, end
+
+    # dernier segment
+    if (cur_end - cur_start) >= min_duration_s:
+        merged.append((cur_start, cur_end))
+
+    return merged
+
+
 def detect_activity(
     y: np.ndarray,
     sr: int,
     n_fft: int = 1024,
     hop_length: int = 256,
-    k: float = 2.5,
-    min_duration_s: float = 0.15,
+    k: float = 0.8,
+    min_duration_s: float = 0.08,
+    raw_min_duration_s: float = 0.03,
+    merge_gap_s: float = 0.10,
 ) -> List[Tuple[float, float]]:
     """
     Pipeline complet :
     - calcule le flux spectral
-    - applique un seuillage adaptatif
+    - applique un seuillage adaptatif (très sensible)
+    - regroupe les segments proches dans le temps
     - renvoie une liste de segments (t_onset, t_offset) en secondes.
+
+    min_duration_s : durée minimale après fusion
+    raw_min_duration_s : durée minimale avant fusion (très petite)
     """
+    # 1) VAD très sensible (petite durée minimale brute)
     flux = _compute_spectral_flux(y, sr=sr, n_fft=n_fft, hop_length=hop_length)
     activity = _binarize_flux(
         flux,
         k=k,
-        min_duration_s=min_duration_s,
+        min_duration_s=raw_min_duration_s,
         hop_length=hop_length,
         sr=sr,
     )
+
+    # 2) Conversion en segments bruts
     segments = activity_to_segments(activity, sr=sr, hop_length=hop_length)
-    return segments
+
+    # 3) Regroupement temporel
+    segments_merged = merge_segments(
+        segments,
+        min_gap_s=merge_gap_s,
+        min_duration_s=min_duration_s,
+    )
+
+    return segments_merged
