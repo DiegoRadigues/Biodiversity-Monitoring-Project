@@ -598,4 +598,4 @@ Projet réalisé par :
 - Arthur Dufour  
 - Ange Simpalingabo  
 
-Sous la supervision de l’équipe pédagogique, dans le cadre d’un projet d’analyse de signaux audio appliqué à la biodiversité.
+
