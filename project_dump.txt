@@ -1,0 +1,2175 @@
+﻿=== ARBORESCENCE DU PROJET ===
+
+>>> TREE: README.md
+
+C:\Users\diego\Biodiversity-Monitoring-Project\README.md
+
+>>> TREE: requirements.txt
+
+C:\Users\diego\Biodiversity-Monitoring-Project\requirements.txt
+
+>>> TREE: assets
+
+Structure du dossier pour le volume OS
+Le numÚro de sÚrie du volume est 423E-B89C
+C:\USERS\DIEGO\BIODIVERSITY-MONITORING-PROJECT\ASSETS
++---figures
+ª   ª   rf_segments_confusion_matrix.png
+ª   ª   
+ª   +---Bird songs
+ª           grive_spectrogram.png
+ª           merle_spectrogram.png
+ª           mÚsange charbonniÞre_spectrogram.png
+ª           pic vert_spectrogram.png
+ª           pie_spectrogram.png
+ª           pigeon_spectrogram.png
+ª           pinson_spectrogram.png
+ª           rouge-gorge_spectrogram.png
+ª           sitelle torchepot_spectrogram.png
+ª           tourterelle_spectrogram.png
+ª           
++---figures_annotated
+        grive_segments.png
+        merle_segments.png
+        mÚsange charbonniÞre_segments.png
+        pic vert_segments.png
+        pie_segments.png
+        pigeon_segments.png
+        pinson_segments.png
+        rouge-gorge_segments.png
+        sitelle torchepot_segments.png
+        tourterelle_segments.png
+        
+
+>>> TREE: data
+
+Structure du dossier pour le volume OS
+Le numÚro de sÚrie du volume est 423E-B89C
+C:\USERS\DIEGO\BIODIVERSITY-MONITORING-PROJECT\DATA
++---processed
+ª   ª   
+ª   +---Bird songs
+ª           grive_bandpass.wav
+ª           merle_bandpass.wav
+ª           mÚsange charbonniÞre_bandpass.wav
+ª           pic vert_bandpass.wav
+ª           pie_bandpass.wav
+ª           pigeon_bandpass.wav
+ª           pinson_bandpass.wav
+ª           rouge-gorge_bandpass.wav
+ª           sitelle torchepot_bandpass.wav
+ª           tourterelle_bandpass.wav
+ª           
++---raw
+    ª   
+    +---Bird songs
+            grive.wav
+            merle.wav
+            mÚsange charbonniÞre.wav
+            pic vert.wav
+            pie.wav
+            pigeon.wav
+            pinson.wav
+            rouge-gorge.wav
+            sitelle torchepot.wav
+            tourterelle.wav
+            
+
+>>> TREE: docs
+
+Structure du dossier pour le volume OS
+Le numÚro de sÚrie du volume est 423E-B89C
+C:\USERS\DIEGO\BIODIVERSITY-MONITORING-PROJECT\DOCS
+    Analyses_des_chants_d_oiseaux_presentation.pdf
+    analyse_filtrage.md
+    choix_outils.md
+    
+Aucun sous-dossier existant 
+
+
+>>> TREE: experiments
+
+Structure du dossier pour le volume OS
+Le numÚro de sÚrie du volume est 423E-B89C
+C:\USERS\DIEGO\BIODIVERSITY-MONITORING-PROJECT\EXPERIMENTS
++---exp1
+    ª   features.csv
+    ª   metrics.json
+    ª   predictions_segments.csv
+    ª   segments.csv
+    ª   
+    +---figures
+    ª       
+    +---models
+    ª       rf_segments.joblib
+    ª       
+    +---reports
+            rf_segments_report.txt
+            
+
+>>> TREE: project_plan
+
+Structure du dossier pour le volume OS
+Le numÚro de sÚrie du volume est 423E-B89C
+C:\USERS\DIEGO\BIODIVERSITY-MONITORING-PROJECT\PROJECT_PLAN
+    ARBORESCENCE.md
+    WBS.md
+    
+Aucun sous-dossier existant 
+
+
+>>> TREE: scripts
+
+Structure du dossier pour le volume OS
+Le numÚro de sÚrie du volume est 423E-B89C
+C:\USERS\DIEGO\BIODIVERSITY-MONITORING-PROJECT\SCRIPTS
+    extract_features.py
+    inspect_segments.py
+    predict_file.py
+    predict_segments.py
+    run_pipeline.py
+    train_classifier.py
+    
+Aucun sous-dossier existant 
+
+
+>>> TREE: src
+
+Structure du dossier pour le volume OS
+Le numÚro de sÚrie du volume est 423E-B89C
+C:\USERS\DIEGO\BIODIVERSITY-MONITORING-PROJECT\SRC
+ª   config.py
+ª   __init__.py
+ª   
++---detection
+ª   ª   segmentation_2d.py
+ª   ª   vad_spectral_flux.py
+ª   ª   __init__.py
+ª   ª   
+ª           vad_spectral_flux.cpython-312.pyc
+ª           __init__.cpython-312.pyc
+ª           
++---features
+ª   ª   f0.py
+ª   ª   mfcc.py
+ª   ª   spectral_stats.py
+ª   ª   __init__.py
+ª   ª   
+ª           f0.cpython-312.pyc
+ª           mfcc.cpython-312.pyc
+ª           spectral_stats.cpython-312.pyc
+ª           __init__.cpython-312.pyc
+ª           
++---io
+ª   ª   load_audio.py
+ª   ª   save_audio.py
+ª   ª   __init__.py
+ª   ª   
+ª           load_audio.cpython-312.pyc
+ª           save_audio.cpython-312.pyc
+ª           __init__.cpython-312.pyc
+ª           
++---signal
+ª   ª   fir_bandpass.py
+ª   ª   noise_reduction.py
+ª   ª   stft.py
+ª   ª   __init__.py
+ª   ª   
+ª           fir_bandpass.cpython-312.pyc
+ª           stft.cpython-312.pyc
+ª           __init__.cpython-312.pyc
+ª           
+        config.cpython-312.pyc
+        __init__.cpython-312.pyc
+        
+
+=== CONTENU DES FICHIERS .md et .py ===
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\README.md -----
+
+![verdier-deurope](https://github.com/user-attachments/assets/ed3c5e9e-2d56-4fd4-8914-c0d80e39a733)
+#  Biodiversity Monitoring Project  
+Analyse automatique de chants dâ€™oiseaux â€” Filtrage FIR, STFT & Spectrogrammes
+
+
+
+##  Objectif
+
+Ce projet permet de :
+
+- charger automatiquement des fichiers `.wav` dâ€™oiseaux,
+- appliquer un **filtre passe-bande FIR** (400 Hz â€“ 8 kHz),
+- calculer un **spectrogramme STFT**,
+- sauvegarder les **audios filtrÃ©s** et les **figures** gÃ©nÃ©rÃ©es.
+
+## Installation
+
+### 1. Cloner le dÃ©pÃ´t
+
+```bash
+git clone https://github.com/DiegoRadigues/Biodiversity-Monitoring-Project.git
+cd Biodiversity-Monitoring-Project
+```
+
+### 2. CrÃ©er un environnement virtuel
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### 3. Installer les dÃ©pendances
+
+```powershell
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+##  Lancer le pipeline
+
+```powershell
+python scripts/run_pipeline.py
+```
+
+##  Structure du projet
+
+```
+Biodiversity-Monitoring-Project/
+â”œâ”€â”€ data/
+â”‚   â”œâ”€â”€ raw/
+â”‚   â””â”€â”€ processed/
+â”œâ”€â”€ assets/
+â”‚   â””â”€â”€ figures/
+â”œâ”€â”€ scripts/
+â”‚   â””â”€â”€ run_pipeline.py
+â””â”€â”€ src/
+    â”œâ”€â”€ config.py
+    â”œâ”€â”€ io/
+    â”œâ”€â”€ signal/
+    â””â”€â”€ detection/
+```
+
+##  Auteurs
+
+- Diego de Radigues  
+- Arthur Dufour  
+- Ange Simpalingabo  
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\docs\analyse_filtrage.md -----
+
+##### Arthur DUFOUR, Ange SIMPALINGABO, Diego de RADIGUES
+
+# Filtrage passe-bande
+
+
+## FrÃ©quence de coupure
+
+La frÃ©quence de coupure nous permet d'isoler le chant en supprimant les
+bruits hauts et bas.
+
+Les bruits indÃ©sirables bas sont gÃ©nÃ©ralement infÃ©rieurs Ã  400Hz.
+Certains oiseaux, comme le canard ou l'oie, peuvent cependant chanter
+autour de 200Hz.
+
+Sachant que la plupart des oiseaux concentrent leurs cris autour de 1kHz
+et 8kHz, la rÃ¨gle de bonne pratique serait d'Ã©tablir la coupure basse Ã 
+400Hz et la coupure haute Ã  8kHz.
+
+Si nous observons que le spectrogramme de l'oiseau semble plus aigu ou
+plus grave, nous pourrons Ã©largir le fenÃªtre de coupure vers le haut ou
+vers le bas.
+
+## Type de filtre numÃ©rique et ordre du filtre
+
+Afin de conserver une phase linÃ©aire et d'Ã©viter la distorsion
+temporelle trÃ¨s gÃªnante dans l'analyse d'un chant d'oiseau, le filtre
+numÃ©rique le plus appropriÃ© est le filtre Ã  rÃ©ponse impulsionnelle
+finie.
+
+La forme d'onde et les enveloppes du signal (pulsations, syllabes) sont
+parfaitement conservÃ©es.
+
+L'analyse se fera sur un fichier .wav donc pas en temps rÃ©el (cas qui
+nÃ©cessite un filtrage Ã  rÃ©ponse impulsionnelle infinie).
+
+------------------------------------------------------------------------
+
+# Analyse en frÃ©quence : paramÃ¨tre ST(F)FT (Short Time (Fast) Fourier Transform)
+
+Le signal sonore obtenu est d'abord continu dans le temps. Pour pouvoir
+le traiter numÃ©riquement, il est nÃ©cessaire de l'Ã©chantillonner,
+c'est-Ã -dire de le discrÃ©tiser en une suite de valeurs numÃ©riques.
+
+On a besoin d'un signal numÃ©rique car les ordinateurs et
+microcontrÃ´leurs ne traitent que des nombres. Un signal continu
+(analogique) ne peut pas Ãªtre directement stockÃ©, analysÃ© ou filtrÃ©
+numÃ©riquement. La discrÃ©tisation permet donc de le rendre traitable par
+des algorithmes numÃ©riques.
+
+## DFT 
+
+AprÃ¨s avoir discrÃ©tisÃ© le signal, on applique une DFT pour passer du
+domaine temporel au domaine frÃ©quentiel. Cela permet d'identifier les
+frÃ©quences prÃ©sentes dans le signal et leur amplitude. On remarque que
+la DFT donne les frÃ©quences prÃ©sentes et leurs amplitudes mais qu'elle
+perd l'information temporelle.
+
+<img width="1532" height="472" alt="DFT" src="https://github.com/user-attachments/assets/20435296-0bbf-4523-9a7c-81ba2705a184" />
+
+
+## STFT
+
+La STFT dÃ©coupe le signal en petites fenÃªtres temporelles. On applique
+une DFT sur chaque fenÃªtre ce qui permet de voir comment le contenu
+frÃ©quentiel Ã©volue dans le temps. On choisit une fenÃªtre (ex. 20 ms de
+signal) puis on la dÃ©cale progressivement pour obtenir une carte
+temps--frÃ©quence.
+
+La STFT repose sur le fenÃªtrage : on multiplie le signal par une fenÃªtre
+(Hamming, Hann, etc.) pour isoler un petit segment, puis on applique la
+DFT sur ce segment pour obtenir le spectre local.
+
+<img width="904" height="832" alt="STFT" src="https://github.com/user-attachments/assets/c0b05712-804f-479d-b7d7-e14d466d7351" />
+
+
+------------------------------------------------------------------------
+
+## ParamÃ¨tres essentiels du fenÃªtrage
+
+-   **Taille de la fenÃªtre** : grande â†’ bonne rÃ©solution en frÃ©quence,
+    faible rÃ©solution temporelle ; petite â†’ bonne rÃ©solution temporelle,
+    faible rÃ©solution frÃ©quentielle.
+-   **Taille de trame** : nombre d'Ã©chantillons dans chaque bloc
+    analysÃ©.
+-   En pratique, fenÃªtre = trame est souvent suffisant.
+-   On applique gÃ©nÃ©ralement un **recouvrement** pour Ã©viter les
+    discontinuitÃ©s entre fenÃªtres.
+
+    <img width="1180" height="734" alt="recouvrement" src="https://github.com/user-attachments/assets/56bbb07b-9639-4652-bcc0-4243752ed918" />
+
+
+Formule :
+
+    Recouvrement = 1 - (hop size / window size)
+
+Le hop size fixe le dÃ©calage entre deux trames successives.
+
+------------------------------------------------------------------------
+
+Pour obtenir un spectrogramme de qualitÃ© :
+
+-   Le choix de la taille de fenÃªtre dÃ©termine le compromis
+    temps/frÃ©quence.
+-   Le hop size influence le recouvrement et la continuitÃ© du
+    spectrogramme.
+-   La fonction de fenÃªtrage rÃ©duit les discontinuitÃ©s et amÃ©liore
+    l'analyse.
+
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\docs\choix_outils.md -----
+
+# Choix des outils & requirements 
+**Arthur DUFOUR â€” Ange SIMPALINGABO â€” Diego de RADIGUES**
+
+
+
+## 1) Outils retenus (et pourquoi)
+
+### Python (choix principal)
+- **Pourquoi** : bon Ã©cosystÃ¨me audio/signal, facile Ã  automatiser avec scripts. reproductibilitÃ©.
+- **UtilisÃ© pour** : lecture/Ã©criture `.wav`, filtrage FIR, STFT/melâ€‘spectrogramme, dÃ©tection par flux spectral + seuil adaptatif, features (MFCC, centroid, rollâ€‘off, entropie), mÃ©triques et graphiques.
+
+### Support
+- **Audacity** : Ã©coute rapide, inspection visuelle. utile pour vÃ©rifier le filtrage. dÃ©jÃ  utilisÃ© et simple Ã  maitriser
+
+
+## 2) Requirements Python (Ã©voluera peut-Ãªtre au fil du projet, Ã  update)
+
+Fichier : **[requirements.txt](../requirements.txt)**
+
+- `numpy`, `scipy` â†’ calculs numÃ©riques, filtrage FIR, STFT.  
+- `librosa`, `soundfile` â†’ I/O audio, MFCC, aides spectrogramme.  
+- `matplotlib` â†’ figures (spectrogrammes, rÃ©ponses en frÃ©quence, overlays).  
+- `pandas` â†’ tables `segments.csv` / `features.csv`.  
+- `scikit-learn` â†’ stats de base et petites classifications si besoin.  
+- `tqdm`, `joblib`, `numba` â†’ confort/performances(outils)
+
+> Pas de deep learning mais sinon Ã§a reste possible en python
+
+
+---
+
+## 3) Installation (Windows PowerShell)
+
+> ExÃ©cuter Ã  la racine du projet
+
+```powershell
+# 1) Environnement virtuel
+python -m venv .venv
+
+# 2) Activer l'environnement
+.venv\Scripts\activate
+
+# 3) Installer les dÃ©pendances
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\project_plan\ARBORESCENCE.md -----
+
+# ARBORESCENCE â€” Biodiversity Monitoring Project 
+
+> **But** : partir dâ€™un fichier .wav tÃ©lÃ©chargÃ©, filtrer (FIR linÃ©aire), calculer STFT, dÃ©tecter/segmenter, extraire des paramÃ¨tres (MFCC, stats spectrales) et stocker les rÃ©sultats et figures.  
+> **Principe** : ne garder que ce qui sera effectivement utilisÃ© pour un pipeline â€œhors temps rÃ©elâ€.
+
+```
+Biodiversity-Monitoring-Project/
+â”œâ”€ README.md                          # Guide rapide dâ€™exÃ©cution (installation + commande de pipeline)
+â”œâ”€ ARBORESCENCE.md                    # Ce document
+â”œâ”€ docs/                              # Documents fournis / rapports courts
+â”‚  â”œâ”€ analyse_filtrage.md             # Notes sur le choix FIR + paramÃ¨tres
+â”‚  â””â”€ Analyses_des_chants_d_oiseaux_presentation.pdf
+â”œâ”€ project_plan/
+â”‚  â””â”€ WBS.md                          # DÃ©composition du travail validÃ©e
+â”œâ”€ data/
+â”‚  â”œâ”€ raw/                            # Fichiers .wav dâ€™origine (source tÃ©lÃ©chargÃ©e)
+â”‚  â””â”€ processed/                      # Audios filtrÃ©s / resamplÃ©s (.wav) et artefacts intermÃ©diaires
+â”œâ”€ assets/
+â”‚  â””â”€ figures/                        # Spectrogrammes, rÃ©ponses en frÃ©quence, visuels des segments
+â”œâ”€ src/                               # Code rÃ©utilisable (organisÃ© par domaine)
+â”‚  â”œâ”€ __init__.py
+â”‚  â”œâ”€ config.py                       # ParamÃ¨tres centraux : fs, bandes du FIR, STFT, chemins par dÃ©faut
+â”‚  â”œâ”€ io/
+â”‚  â”‚  â”œâ”€ __init__.py
+â”‚  â”‚  â”œâ”€ load_audio.py                # Lecture mono + resample + normalisation
+â”‚  â”‚  â””â”€ save_audio.py                # Ã‰criture .wav intermÃ©diaires (processed/)
+â”‚  â”œâ”€ signal/
+â”‚  â”‚  â”œâ”€ __init__.py
+â”‚  â”‚  â”œâ”€ fir_bandpass.py              # Conception + application du filtre FIR (phase linÃ©aire)
+â”‚  â”‚  â”œâ”€ stft.py                      # Calcul STFT + helpers dâ€™affichage
+â”‚  â”‚  â””â”€ noise_reduction.py           # (Optionnel) soustraction spectrale / filtre mÃ©dian 2D
+â”‚  â”œâ”€ detection/
+â”‚  â”‚  â”œâ”€ __init__.py
+â”‚  â”‚  â”œâ”€ vad_spectral_flux.py         # DÃ©tection (RMS/flux spectral) + seuillage adaptatif
+â”‚  â”‚  â””â”€ segmentation_2d.py           # Masque binaire sur spectrogramme + composantes connexes
+â”‚  â””â”€ features/
+â”‚     â”œâ”€ __init__.py
+â”‚     â”œâ”€ mfcc.py                      # MFCC (+Î”/Î”Î”)
+â”‚     â”œâ”€ spectral_stats.py            # Centroid, roll-off, entropie, flatness, bande passante
+â”‚     â””â”€ f0.py                        # Estimation f0 (autocorrÃ©lation/cepstre) avec bornes
+â”œâ”€ scripts/                           # Points dâ€™entrÃ©e â€œprÃªts Ã  lancerâ€
+â”‚  â”œâ”€ run_pipeline.py                 # End-to-end : data/raw/*.wav â†’ processed/, segments.csv, figures/
+â”‚  â””â”€ extract_features.py             # Ã€ partir de segments â†’ features.csv/parquet (+ stats)
+â””â”€ experiments/
+   â””â”€ exp1/                           # RÃ©sultats dâ€™exÃ©cution (un dossier par expÃ©rience)
+      â”œâ”€ segments.csv                 # Onset/offset, fmin/fmax, score
+      â”œâ”€ features.csv                 # (gÃ©nÃ©rÃ© par extract_features.py)
+      â”œâ”€ metrics.json                 # MÃ©triques de dÃ©tection (F1, IoU)
+      â””â”€ figures/                     # Figures gÃ©nÃ©rÃ©es (spectrogrammes, overlays)
+```
+
+---
+
+## DÃ©tails de contenu (minimum viable)
+
+- **data/raw/** : placez ici les .wav **tÃ©lÃ©chargÃ©s** (sources originales, non modifiÃ©es).
+- **data/processed/** : .wav **filtrÃ©s** (FIR 0,4â€“8 kHz par dÃ©faut), plus tout audio intermÃ©diaire utile.
+- **assets/figures/** : export des **spectrogrammes** (STFT), rÃ©ponses en frÃ©quence du FIR, et visuels de **segments**.
+- **src/config.py** : un seul endroit pour rÃ©gler les **paramÃ¨tres** (fs, frÃ©quences de coupure, taille fenÃªtre/hop STFT, chemins par dÃ©faut).
+- **src/io/** : fonctions dâ€™entrÃ©e/sortie audio (lecture/Ã©criture), pour garder les scripts simples.
+- **src/signal/** : traitements signal â€œpursâ€ (filtrage FIR, STFT, dÃ©bruitage optionnel).
+- **src/detection/** : **dÃ©tection** dâ€™activitÃ© + **segmentation** 2D des rÃ©gions tempsâ€“frÃ©quence.
+- **src/features/** : extraction des **MFCC**, statistiques spectrales et **f0**.
+- **scripts/run_pipeline.py** : pipeline unique : _raw â†’ processed â†’ dÃ©tection/segmentation â†’ figures + segments.csv_.
+- **scripts/extract_features.py** : lit `segments.csv`, **extrait** les features, sauvegarde `features.csv`.
+- **experiments/exp1/** : premier run reproductible avec **rÃ©sultats** et **figures**.
+
+> Pas de dossiers â€œnotebooksâ€/â€œmodelsâ€/â€œreportsâ€ ici pour rester minimal : ajoutez-les **uniquement** si vous en avez besoin.
+
+---
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\project_plan\WBS.md -----
+
+# WBS â€” Projet d'analyse de chants d'oiseaux 
+
+> **Objectif** : partir dâ€™un enregistrement .wav tÃ©lÃ©chargÃ©, dÃ©tecter les cris, extraire des paramÃ¨tres pertinents et prÃ©parer une base pour une identification dâ€™espÃ¨ce.  
+
+> **HypothÃ¨se de dÃ©part** : traitement **hors temps rÃ©el** sur poste, audio mono, 22,05â€“44,1 kHz, 16 bits.
+
+---
+
+## 1. Pilotage & cadrage
+### 1.1. PortÃ©e & exigences
+- 1.1.1. DÃ©finir les livrables (pipeline, rapport, figures, tableaux de paramÃ¨tres, baseline de classification)
+- 1.1.2. Fixer les mÃ©triques dâ€™Ã©valuation (dÃ©tectionÂ : F1, IoUÂ±50Â ms ; classificationÂ : F1 macro, confusion)
+- 1.1.3. DÃ©finir les espÃ¨ces cibles (2â€“5 pour un POC) et les scÃ©narios (oiseaux dominants, bruit mÃ©tÃ©o)
+- 1.1.4. Fixer lâ€™environnement (PythonÂ â‰¥Â 3.10, packagesÂ : numpy, scipy, librosa, scikitâ€‘learn, matplotlib)
+- 1.1.5. ContraintesÂ : pas de temps rÃ©el, fichiers .wav, phase linÃ©aire souhaitÃ©e
+
+### 1.2. Organisation & rÃ´les
+non dÃ©finis pour le moment
+
+### 1.3. Planning & jalons
+- 1.3.1. J0â€“J7 : Baseline dÃ©tection + spectrogrammes
+- 1.3.2. J8â€“J14 : Extraction de paramÃ¨tres + tableaux
+- 1.3.3. J15â€“J21 : Baseline classification (optionnelle)
+- 1.3.4. J22â€“J28 : Consolidation, comparaisons, rapport final
+
+---
+
+## 2. DonnÃ©es & conformitÃ©
+### 2.1. Sourcing & licence
+- 2.1.1. Importer lâ€™audio tÃ©lÃ©chargÃ© (.wav non compressÃ© recommandÃ©)
+- 2.1.2. VÃ©rifier droits dâ€™usage/citation (si open dataÂ : noter la licence)
+- 2.1.3. Renseigner mÃ©tadonnÃ©es de base (source, date, lieu, matÃ©riel si connu)
+
+### 2.2. Structure de rÃ©pertoires
+- 2.2.1. `data/raw/` (originaux), `data/processed/` (signaux filtrÃ©s), `assets/` (figures)
+- 2.2.2. `experiments/` (configs, rÃ©sultats, logs), `reports/` (notebooks, PDF) `docs/` (documentation technique)
+
+### 2.3. TraÃ§abilitÃ©
+- 2.3.1. Fichier `DATASET.md` (sources, versions, paramÃ¨tres dâ€™import)
+- 2.3.2. Hash/checksum des fichiers bruts (optionnel)
+
+---
+
+## 3. PrÃ©â€‘traitements
+### 3.1. Lecture & normalisation
+- 3.1.1. Charger en mono ; resampler si nÃ©cessaire (22,05 kHz conseillÃ©)
+- 3.1.2. Normaliser RMS/peak (documentation du gain appliquÃ©)
+
+### 3.2. Filtrage passeâ€‘bande
+- 3.2.1. Choisir FIR linÃ©aireâ€‘phase (fenÃªtre Hamming/Blackman, ordre adaptÃ©)
+- 3.2.2. Bande de rÃ©fÃ©renceÂ : 0,4â€“8 kHz (ajustable selon espÃ¨ce/spectrogramme)
+- 3.2.3. Valider rÃ©ponses impulsionnelle et frÃ©quentielle (courbes de Bode, dÃ©lai de groupe)
+- 3.2.4. Export intermÃ©diaire `data/processed/xxx_bandpass.wav`
+
+### 3.3. RÃ©duction de bruit (optionnel)
+- 3.3.1. Profil de bruit (silence estimÃ©) + soustraction spectrale OU filtre mÃ©dian 2D sur spectrogramme
+- 3.3.2. ContrÃ´le des artefacts (musical noise) et comparaison AB
+
+---
+
+## 4. ReprÃ©sentations tempsâ€‘frÃ©quence
+### 4.1. ParamÃ¨tres STFT
+- 4.1.1. FenÃªtre 20â€“40Â ms, hop 10Â ms (recouvrement 50â€“75Â %), FFT 1024â€“2048
+- 4.1.2. FenÃªtre Hann/Hamming, amplitude/logâ€‘puissance
+- 4.1.3. Sauvegarder spectrogrammes (.png) pour inspection
+
+### 4.2. ReprÃ©sentations dÃ©rivÃ©es
+- 4.2.1. Melâ€‘spectrogramme (64â€“128 bandes) pour ML
+- 4.2.2. CQT si besoin de haute rÃ©solution frÃ©quentielle locale
+- 4.2.3. Enveloppes temporelles (RMS, flux spectral)
+
+---
+
+## 5. DÃ©tection & segmentation
+### 5.1. DÃ©tection dâ€™activitÃ© acoustique (VAD aviaire)
+- 5.1.1. Seuil adaptatif sur RMS/flux spectral (mÃ©diane glissante + kÂ·Ïƒ)
+- 5.1.2. Morphologie (dilatation/Ã©rosion) pour regrouper microâ€‘pauses
+- 5.1.3. Filtre dâ€™exclusion <Â ~800Â Hz si espÃ¨ces concernÃ©es >Â 1Â kHz
+
+### 5.2. Segmentation 2D
+- 5.2.1. Seuillage du spectrogramme (Otsu/percentile) â†’ masque binaire
+- 5.2.2. Composantes connexes â†’ boÃ®tes tempsâ€‘frÃ©quence (onset, offset, fmin, fmax)
+- 5.2.3. Nonâ€‘Max Suppression pour doublons/chevauchements
+
+### 5.3. Export des segments
+- 5.3.1. Table `segments.csv` (t_onset, t_offset, f_min, f_max, score)
+- 5.3.2. DÃ©coupes audio par segment (optionnel)
+
+---
+
+## 6. Extraction de paramÃ¨tres (features)
+### 6.1. Temps & rythme
+- 6.1.1. DurÃ©e, intervalles, taux de rÃ©pÃ©tition
+- 6.1.2. Profil dâ€™enveloppe (attaque, maintien, dÃ©croissance)
+
+### 6.2. Spectral & harmonique
+- 6.2.1. Centroid, bande passante, rollâ€‘off (85/95Â %), flatness, entropie
+- 6.2.2. f0 (autocorrÃ©lation/cepstre) + contour ; prÃ©sence dâ€™harmoniques
+
+### 6.3. MFCC & dÃ©rivÃ©es
+- 6.3.1. 13â€“20 MFCC + Î”/Î”Î”
+- 6.3.2. Statistiques par segment (moyenne, Ã©cartâ€‘type, min, max, percentiles)
+
+### 6.4. Export
+- 6.4.1. `features.parquet/csv` (clÃ©Â : id_segment)
+- 6.4.2. Dictionnaire des features (`FEATURES.md`)
+
+---
+
+## 7. Classification (optionnelle si on a le temps)
+### 7.1. Baseline â€œclassiqueâ€
+- 7.1.1. Jeu rÃ©duit, MFCC+stats â†’ SVM/Random Forest
+- 7.1.2. Validation croisÃ©e, F1 macro, confusion
+
+### 7.2. Approche â€œdeepâ€ (normalement c'est souvent fait avec CNN mais ici hors du cadre)
+- 7.2.1. EntrÃ©eÂ : logâ€‘Mel 128Ã—T â†’ CNN/CRNN
+- 7.2.2. Transfert dâ€™apprentissage (geler couches, fineâ€‘tuning tÃªte)
+- 7.2.3. AugmentationsÂ : timeâ€‘stretch, pitchâ€‘shift, bruit, SpecAugment
+
+### 7.3. Sorties & seuils (idem)
+- 7.3.1. ProbabilitÃ©s par espÃ¨ce (multiâ€‘label si besoin)
+- 7.3.2. Calibration & choix des seuils par espÃ¨ce
+
+---
+
+## 8. Ã‰valuation & qualitÃ©
+### 8.1. Protocoles
+- 8.1.1. Split par enregistrement/site (Ã©viter fuite de donnÃ©es)
+- 8.1.2. DÃ©tectionÂ : prÃ©cision, rappel, F1, IoU (tolÃ©rance 50Â ms)
+- 8.1.3. ClassificationÂ : F1 macro, confusion, PR par classe
+
+### 8.2. Analyses
+- 8.2.1. SensibilitÃ© aux paramÃ¨tres STFT et au filtrage
+- 8.2.2. Robustesse bruit (vent/pluie/insectes)
+- 8.2.3. Erreurs typiques (chevauchements, fausses alarmes)
+
+### 8.3. QualitÃ© & revues
+- 8.3.1. Revues pairâ€‘Ã â€‘pair du code et des figures
+- 8.3.2. ReproductibilitÃ© (seed, versions, configs sauvegardÃ©es)
+
+---
+
+## 9. Livrables & documentation
+### 9.1. Code & artefacts
+- 9.1.1. Scripts/notebooks (prÃ©traitement, dÃ©tection, features, modÃ¨le)
+- 9.1.2. Figures (spectrogrammes annotÃ©s, distributions de features)
+- 9.1.3. Tables (segments.csv, features.csv/parquet, mÃ©triques)
+
+### 9.2. Rapport
+- 9.2.1. MÃ©thodes (justification des choixÂ : FIR, STFT, paramÃ¨tres)
+- 9.2.2. RÃ©sultats (mÃ©triques, ablations, exemples audio/visuels)
+- 9.2.3. Limites & perspectives (gÃ©nÃ©ralisation, temps rÃ©el, dÃ©ploiement)
+
+### 9.3. Guide dâ€™exÃ©cution
+- 9.3.1. README (installation, commande â€œendâ€‘toâ€‘endâ€)
+
+---
+
+## 10. Risques & parades
+- 10.1. Bruit fort / faible SNR â†’ renforcer filtrage, ajuster seuils, augmenter fenÃªtre
+- 10.2. DÃ©sÃ©quilibre dâ€™espÃ¨ces â†’ pondÃ©ration, Ã©chantillonnage, mÃ©triques macro
+- 10.3. Chevauchement de cris â†’ NMS, segmentation 2D, modÃ¨les sÃ©quentiels
+- 10.4. Surâ€‘apprentissage â†’ augmentation, validation stricte, early stopping
+- 10.5. DonnÃ©es insuffisantes â†’ open data dâ€™appoint, transfert dâ€™apprentissage
+
+---
+
+## 11. Checklists 
+### 11.1. PrÃ©â€‘traitement
+- [ ] Mono + resample ok
+- [ ] Filtre FIR testÃ© (rÃ©ponse en frÃ©quence, dÃ©lai de groupe)
+- [ ] Export â€œbandpass.wavâ€ gÃ©nÃ©rÃ©
+
+### 11.2. DÃ©tection/segmentation
+- [ ] Courbes RMS/flux spectral tracÃ©es
+- [ ] Seuil adaptatif validÃ© (visuel + Ã©coute)
+- [ ] `segments.csv` rempli (>= 10 segments)
+
+### 11.3. Features
+- [ ] MFCC + Î”/Î”Î” extraits
+- [ ] f0 et entropie calculÃ©s
+- [ ] Fichier features sauvegardÃ©
+
+### 11.4. Ã‰valuation
+- [ ] MÃ©triques calculÃ©es et commentÃ©es
+- [ ] Figures (PR/F1/confusion) exportÃ©es
+- [ ] Seed/config archivÃ©s
+
+---
+
+## 12. Annexe â€” ParamÃ¨tres par dÃ©faut (point de dÃ©part)
+- FrÃ©quences de coupureÂ : **400Â Hz â€“ 8Â kHz** (ajuster selon spectrogramme)
+- STFTÂ : fenÃªtre **25Â ms**, hop **10Â ms**, FFT **1024**, fenÃªtre **Hann**
+- DÃ©tectionÂ : mÃ©diane glissante 0,5â€“1Â s, seuil **k = 3** (Ã  balayer)
+- MFCCÂ : **20** coefficients, + Î”/Î”Î”
+- f0Â : portÃ©e **300â€“8Â 000Â Hz**, mÃ©thode autocorrÃ©lation
+
+---
+
+
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\scripts\extract_features.py -----
+
+import sys
+from pathlib import Path
+from typing import List, Dict, Any
+
+import numpy as np
+import pandas as pd
+import librosa
+
+# === PrÃ©parer les imports du package src ===
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from src.config import (  # type: ignore
+    DATA_PROCESSED,
+    TARGET_SR,
+    STFT_N_FFT,
+    STFT_HOP_LENGTH,
+)
+from src.features.mfcc import compute_mfcc_stats  # type: ignore
+from src.features.spectral_stats import compute_spectral_stats  # type: ignore
+from src.features.f0 import compute_f0_stats  # type: ignore
+
+
+EXPERIMENT_DIR = PROJECT_ROOT / "experiments" / "exp1"
+SEGMENTS_CSV = EXPERIMENT_DIR / "segments.csv"
+FEATURES_CSV = EXPERIMENT_DIR / "features.csv"
+
+
+def load_filtered_audio(rel_file: str) -> tuple[np.ndarray, int]:
+    """
+    Charge l'audio filtrÃ© correspondant Ã  un fichier brut.
+
+    rel_file : chemin relatif du fichier brut (ex. 'Bird songs/merle.wav')
+
+    -> charge data/processed/Bird songs/merle_bandpass.wav
+    """
+    rel_path = Path(rel_file)
+    filtered_name = rel_path.stem + "_bandpass.wav"
+    filtered_path = DATA_PROCESSED / rel_path.parent / filtered_name
+
+    if not filtered_path.exists():
+        raise FileNotFoundError(f"Fichier audio filtrÃ© introuvable : {filtered_path}")
+
+    y, sr = librosa.load(filtered_path, sr=TARGET_SR, mono=True)
+    return y.astype(np.float32), sr
+
+
+def extract_features_for_segment(
+    y: np.ndarray,
+    sr: int,
+) -> Dict[str, Any]:
+    """
+    Calcule toutes les features pour un segment (MFCC + spectrales + f0)
+    et renvoie un dictionnaire plat.
+    """
+    features: Dict[str, Any] = {}
+
+    # MFCC
+    mfcc_stats = compute_mfcc_stats(
+        y,
+        sr=sr,
+        n_mfcc=20,
+        n_fft=STFT_N_FFT,
+        hop_length=STFT_HOP_LENGTH,
+    )
+    features.update(mfcc_stats)
+
+    # Statistiques spectrales
+    spec_stats = compute_spectral_stats(
+        y,
+        sr=sr,
+        n_fft=STFT_N_FFT,
+        hop_length=STFT_HOP_LENGTH,
+    )
+    features.update(spec_stats)
+
+    # f0
+    f0_stats = compute_f0_stats(
+        y,
+        sr=sr,
+        fmin=300.0,
+        fmax=8000.0,
+        frame_length=STFT_N_FFT,
+        hop_length=STFT_HOP_LENGTH,
+    )
+    features.update(f0_stats)
+
+    return features
+
+
+def main():
+    if not SEGMENTS_CSV.exists():
+        print(f"segments.csv introuvable : {SEGMENTS_CSV}")
+        print("Lance d'abord : python scripts/run_pipeline.py")
+        return
+
+    df_segments = pd.read_csv(SEGMENTS_CSV)
+    if df_segments.empty:
+        print("segments.csv est vide, rien Ã  extraire.")
+        return
+
+    print(f"{len(df_segments)} segments trouvÃ©s dans {SEGMENTS_CSV}")
+
+    all_rows: List[Dict[str, Any]] = []
+
+    # On groupe par fichier pour ne charger chaque audio filtrÃ© qu'une fois
+    for rel_file, df_file in df_segments.groupby("file"):
+        print(f"\n=== Fichier : {rel_file} ===")
+
+        try:
+            y_full, sr = load_filtered_audio(rel_file)
+        except FileNotFoundError as e:
+            print(f"  [WARN] {e}")
+            continue
+
+        for _, row in df_file.iterrows():
+            seg_id = int(row["segment_id"])
+            t_on = float(row["t_onset_s"])
+            t_off = float(row["t_offset_s"])
+
+            start_sample = int(round(t_on * sr))
+            end_sample = int(round(t_off * sr))
+            start_sample = max(0, start_sample)
+            end_sample = min(len(y_full), max(start_sample + 1, end_sample))
+
+            y_seg = y_full[start_sample:end_sample]
+            duration_s = (end_sample - start_sample) / sr
+
+            print(f"  - segment {seg_id} : {t_on:.3f}s -> {t_off:.3f}s (durÃ©e ~ {duration_s:.3f}s)")
+
+            base_info: Dict[str, Any] = {
+                "file": rel_file,
+                "segment_id": seg_id,
+                "t_onset_s": t_on,
+                "t_offset_s": t_off,
+                "duration_s": duration_s,
+            }
+
+            feat = extract_features_for_segment(y_seg, sr)
+            base_info.update(feat)
+            all_rows.append(base_info)
+
+    if not all_rows:
+        print("Aucune feature gÃ©nÃ©rÃ©e.")
+        return
+
+    df_feat = pd.DataFrame(all_rows)
+    FEATURES_CSV.parent.mkdir(parents=True, exist_ok=True)
+    df_feat.to_csv(FEATURES_CSV, index=False)
+
+    print(f"\nFeatures sauvegardÃ©es dans : {FEATURES_CSV}")
+    print(f"Nombre de segments avec features : {len(df_feat)}")
+    print(f"Nombre de colonnes : {df_feat.shape[1]}")
+
+
+if __name__ == "__main__":
+    main()
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\scripts\inspect_segments.py -----
+
+import sys
+from pathlib import Path
+
+import pandas as pd
+import numpy as np
+import librosa
+import librosa.display
+import matplotlib.pyplot as plt
+
+# === PrÃ©parer les imports du package src ===
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from src.config import (  # type: ignore
+    DATA_PROCESSED,
+    TARGET_SR,
+    STFT_N_FFT,
+    STFT_HOP_LENGTH,
+    STFT_WINDOW,
+)
+from src.signal.stft import compute_spectrogram  # type: ignore
+
+EXPERIMENT_DIR = PROJECT_ROOT / "experiments" / "exp1"
+SEGMENTS_CSV = EXPERIMENT_DIR / "segments.csv"
+OUT_DIR = PROJECT_ROOT / "assets" / "figures_annotated"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def load_filtered_audio(rel_file: str) -> tuple[np.ndarray, int]:
+    """
+    rel_file : chemin relatif du fichier brut, ex. 'Bird songs/merle.wav'
+    -> charge data/processed/Bird songs/merle_bandpass.wav
+    """
+    rel_path = Path(rel_file)
+    filtered_name = rel_path.stem + "_bandpass.wav"
+    filtered_path = DATA_PROCESSED / rel_path.parent / filtered_name
+
+    y, sr = librosa.load(filtered_path, sr=TARGET_SR, mono=True)
+    return y.astype(np.float32), sr
+
+
+def plot_annotated_spectrogram(rel_file: str, df_file: pd.DataFrame) -> None:
+    """
+    GÃ©nÃ¨re un spectrogramme avec les segments surlignÃ©s en vertical.
+    """
+    print(f"- Annotation : {rel_file}")
+
+    y, sr = load_filtered_audio(rel_file)
+
+    S_db, freqs, times = compute_spectrogram(
+        y,
+        sr=sr,
+        n_fft=STFT_N_FFT,
+        hop_length=STFT_HOP_LENGTH,
+        window=STFT_WINDOW,
+    )
+
+    fig, ax = plt.subplots(figsize=(10, 4))
+    img = librosa.display.specshow(
+        S_db,
+        sr=sr,
+        hop_length=STFT_HOP_LENGTH,
+        x_axis="time",
+        y_axis="hz",
+        ax=ax,
+    )
+    fig.colorbar(img, ax=ax, format="%+2.0f dB")
+    ax.set_title(f"Spectrogramme annotÃ© â€” {rel_file}")
+
+    # Dessiner les segments (zones verticales)
+    for _, row in df_file.iterrows():
+        t_on = float(row["t_onset_s"])
+        t_off = float(row["t_offset_s"])
+        ax.axvspan(t_on, t_off, alpha=0.25)
+
+    out_name = Path(rel_file).stem + "_segments.png"
+    out_path = OUT_DIR / out_name
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=150)
+    plt.close(fig)
+
+    print(f"  -> figure annotÃ©e sauvegardÃ©e : {out_path}")
+
+
+def main():
+    if not SEGMENTS_CSV.exists():
+        print(f"segments.csv introuvable : {SEGMENTS_CSV}")
+        print("Lance d'abord : python scripts/run_pipeline.py")
+        return
+
+    df = pd.read_csv(SEGMENTS_CSV)
+    if df.empty:
+        print("segments.csv est vide.")
+        return
+
+    # Stats rapides
+    print("\n=== Stats segments ===")
+    counts = df.groupby("file")["segment_id"].count()
+    print(counts)
+
+    # Figures annotÃ©es pour chaque fichier
+    print("\n=== GÃ©nÃ©ration des spectrogrammes annotÃ©s ===")
+    for rel_file, df_file in df.groupby("file"):
+        plot_annotated_spectrogram(rel_file, df_file)
+
+
+if __name__ == "__main__":
+    main()
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\scripts\predict_file.py -----
+
+import sys
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import joblib
+import librosa
+
+# pipeline modules dÃ©jÃ  existants
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from src.config import (
+    TARGET_SR,
+    BANDPASS_LOW,
+    BANDPASS_HIGH,
+    FIR_NUMTAPS,
+    STFT_N_FFT,
+    STFT_HOP_LENGTH,
+)
+
+from src.signal.fir_bandpass import design_fir_bandpass  # type: ignore
+from src.signal.stft import compute_spectrogram  # facultatif
+from src.detection.vad_spectral_flux import detect_segments_vad  # type: ignore
+
+from src.features.mfcc import compute_mfcc_stats  # type: ignore
+from src.features.spectral_stats import compute_spectral_stats  # type: ignore
+from src.features.f0 import compute_f0_stats  # type: ignore
+
+
+MODEL_PATH = ROOT / "experiments" / "exp1" / "models" / "rf_segments.joblib"
+
+
+def extract_features_from_segment(y_seg, sr):
+    """Pack toutes les features du pipeline dans un dict."""
+    feats = {}
+    feats.update(
+        compute_mfcc_stats(
+            y_seg, sr, n_mfcc=20, n_fft=STFT_N_FFT, hop_length=STFT_HOP_LENGTH
+        )
+    )
+    feats.update(
+        compute_spectral_stats(
+            y_seg, sr, n_fft=STFT_N_FFT, hop_length=STFT_HOP_LENGTH
+        )
+    )
+    feats.update(
+        compute_f0_stats(
+            y_seg,
+            sr,
+            fmin=300.0,
+            fmax=8000.0,
+            frame_length=STFT_N_FFT,
+            hop_length=STFT_HOP_LENGTH,
+        )
+    )
+    return feats
+
+
+def predict_file(path_wav: str):
+    path_wav = Path(path_wav)
+    print(f"\n=== Analyse de {path_wav.name} ===")
+
+    # 1. Charger audio
+    y, sr = librosa.load(path_wav, sr=TARGET_SR, mono=True)
+    print(f"Audio chargÃ© : durÃ©e = {len(y)/sr:.2f} s, sr = {sr} Hz")
+
+    # 2. FIR band-pass
+    fir = design_fir_bandpass(sr, BANDPASS_LOW, BANDPASS_HIGH, numtaps=FIR_NUMTAPS)
+    y_filt = np.convolve(y, fir, mode="same")
+
+    # 3. DÃ©tection des segments
+    segments = detect_segments_vad(
+        y_filt,
+        sr,
+        n_fft=STFT_N_FFT,
+        hop_length=STFT_HOP_LENGTH,
+        smooth_win_s=0.05,
+        threshold=0.10,
+        min_syllable_duration_s=0.05,
+        min_silence_duration_s=0.05,
+    )
+
+    print(f"{len(segments)} segments dÃ©tectÃ©s")
+
+    # 4. Charger modÃ¨le
+    bundle = joblib.load(MODEL_PATH)
+    pipeline = bundle["pipeline"]
+    feature_cols = bundle["feature_cols"]
+
+    predictions = []
+
+    # 5. Extraire features par segment
+    for i, (t_on, t_off) in enumerate(segments):
+        start = int(t_on * sr)
+        end = int(t_off * sr)
+        y_seg = y_filt[start:end]
+
+        feat = extract_features_from_segment(y_seg, sr)
+        df_seg = pd.DataFrame([feat])
+        df_seg = df_seg.reindex(columns=feature_cols, fill_value=0.0)
+
+        # 6. PrÃ©diction
+        pred = pipeline.predict(df_seg)[0]
+        proba = (
+            pipeline.predict_proba(df_seg)[0].max()
+            if hasattr(pipeline, "predict_proba")
+            else None
+        )
+
+        print(f"  - segment {i}: {t_on:.2f}s â†’ {t_off:.2f}s â†’ {pred} (conf={proba:.2f})")
+
+        predictions.append((pred, proba, t_on, t_off))
+
+    if not predictions:
+        print("Aucun segment : impossible de prÃ©dire.")
+        return
+
+    # 7. Vote majoritaire
+    species_list = [p[0] for p in predictions]
+    dominant = pd.Series(species_list).mode()[0]
+
+    print("\n=== EspÃ¨ce dominante prÃ©dite ===")
+    print(dominant)
+
+    return {
+        "segments": predictions,
+        "dominant_species": dominant,
+    }
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage : python scripts/predict_file.py <fichier.wav>")
+        sys.exit(1)
+
+    predict_file(sys.argv[1])
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\scripts\predict_segments.py -----
+
+import pandas as pd
+from pathlib import Path
+import joblib
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+EXP_DIR = ROOT / "experiments" / "exp1"
+FEATURES_PATH = EXP_DIR / "features.csv"
+MODEL_PATH = EXP_DIR / "models" / "rf_segments.joblib"
+OUT_PATH = EXP_DIR / "predictions_segments.csv"
+
+
+def main():
+    print(f"Chargement des features : {FEATURES_PATH}")
+    df = pd.read_csv(FEATURES_PATH)
+
+    # mÃªme colonne species que dans train_classifier.py
+    df["species"] = df["file"].apply(lambda s: Path(s).stem)
+
+    print(f"Chargement du modÃ¨le : {MODEL_PATH}")
+    bundle = joblib.load(MODEL_PATH)
+    pipeline = bundle["pipeline"]
+    feature_cols = bundle["feature_cols"]
+
+    X = df[feature_cols].values
+
+    print("PrÃ©diction des segments...")
+    y_pred = pipeline.predict(X)
+
+    # si le modÃ¨le supporte predict_proba, on rÃ©cupÃ¨re la confiance
+    if hasattr(pipeline, "predict_proba"):
+        proba = pipeline.predict_proba(X)
+        max_proba = np.max(proba, axis=1)
+    else:
+        max_proba = np.nan * np.ones(len(df))
+
+    df["pred_species"] = y_pred
+    df["pred_confidence"] = max_proba
+
+    # petit check de prÃ©cision globale sur tout le dataset
+    accuracy = (df["pred_species"] == df["species"]).mean()
+    print(f"\nAccuracy sur l'ensemble des segments : {accuracy:.3f}")
+
+    print("\nQuelques lignes :")
+    print(
+        df[
+            [
+                "file",
+                "segment_id",
+                "t_onset_s",
+                "t_offset_s",
+                "species",
+                "pred_species",
+                "pred_confidence",
+            ]
+        ].head(15)
+    )
+
+    df.to_csv(OUT_PATH, index=False)
+    print(f"\nPrÃ©dictions sauvegardÃ©es -> {OUT_PATH}")
+
+
+if __name__ == "__main__":
+    main()
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\scripts\run_pipeline.py -----
+
+import sys
+from pathlib import Path
+import pandas as pd
+
+# Ajouter la racine du projet dans sys.path pour trouver "src"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from src.config import (
+    DATA_RAW,
+    DATA_PROCESSED,
+    FIGURES_DIR,
+    TARGET_SR,
+    BANDPASS_LOW,
+    BANDPASS_HIGH,
+    FIR_NUMTAPS,
+    STFT_N_FFT,
+    STFT_HOP_LENGTH,
+    STFT_WINDOW,
+)
+from src.io.load_audio import load_audio
+from src.io.save_audio import save_audio
+from src.signal.fir_bandpass import apply_fir_bandpass
+from src.signal.stft import compute_spectrogram, save_spectrogram_figure
+from src.detection.vad_spectral_flux import detect_activity
+
+
+# Dossier des rÃ©sultats de l'expÃ©rience
+EXPERIMENT_DIR = PROJECT_ROOT / "experiments" / "exp1"
+EXPERIMENT_DIR.mkdir(parents=True, exist_ok=True)
+SEGMENTS_CSV = EXPERIMENT_DIR / "segments.csv"
+
+
+def process_file(wav_path: Path, all_segments: list) -> None:
+    print(f"\n=== Traitement : {wav_path} ===")
+
+    # 1) Charger l'audio
+    y, sr = load_audio(wav_path, target_sr=TARGET_SR)
+    print(f"  - signal chargÃ©, sr = {sr} Hz, durÃ©e = {len(y) / sr:.2f} s")
+
+    # 2) Filtrage passe-bande
+    y_filt = apply_fir_bandpass(
+        y,
+        fs=sr,
+        lowcut=BANDPASS_LOW,
+        highcut=BANDPASS_HIGH,
+        numtaps=FIR_NUMTAPS,
+    )
+
+    # 3) Chemin de sortie pour l'audio filtrÃ©
+    rel_path = wav_path.relative_to(DATA_RAW)
+    out_wav_path = DATA_PROCESSED / rel_path
+    out_wav_path = out_wav_path.with_name(out_wav_path.stem + "_bandpass.wav")
+
+    save_audio(out_wav_path, y_filt, sr)
+    print(f"  - audio filtrÃ© sauvegardÃ© -> {out_wav_path}")
+
+    # 4) Spectrogramme
+    S_db, freqs, times = compute_spectrogram(
+        y_filt,
+        sr=sr,
+        n_fft=STFT_N_FFT,
+        hop_length=STFT_HOP_LENGTH,
+        window=STFT_WINDOW,
+    )
+
+    # 5) Sauvegarde de la figure
+    fig_rel = rel_path.with_name(rel_path.stem + "_spectrogram.png")
+    fig_out_path = FIGURES_DIR / fig_rel
+
+    save_spectrogram_figure(
+        S_db,
+        sr=sr,
+        hop_length=STFT_HOP_LENGTH,
+        out_path=fig_out_path,
+    )
+    print(f"  - spectrogramme sauvegardÃ© -> {fig_out_path}")
+
+    # 6) DÃ©tection VAD (flux spectral)
+    segments = detect_activity(
+        y_filt,
+        sr=sr,
+        n_fft=STFT_N_FFT,
+        hop_length=STFT_HOP_LENGTH,
+        k=0.6,
+        min_duration_s=0.03,
+    )
+    print(f"  - {len(segments)} segments dÃ©tectÃ©s")
+
+    # 7) Ajouter les segments Ã  la liste globale
+    rel_str = str(rel_path)
+    for seg_id, (t_on, t_off) in enumerate(segments):
+        all_segments.append({
+            "file": rel_str,
+            "segment_id": seg_id,
+            "t_onset_s": t_on,
+            "t_offset_s": t_off,
+        })
+
+
+def main():
+    wav_files = list(DATA_RAW.rglob("*.wav"))
+
+    if not wav_files:
+        print(f"Aucun fichier .wav trouvÃ© dans {DATA_RAW}")
+        return
+
+    print(f"{len(wav_files)} fichiers .wav trouvÃ©s.")
+
+    all_segments = []
+
+    for wav_path in wav_files:
+        process_file(wav_path, all_segments)
+
+    # Sauvegarder les segments
+    if all_segments:
+        df = pd.DataFrame(all_segments)
+        df.to_csv(SEGMENTS_CSV, index=False)
+        print(f"\nSegments sauvegardÃ©s dans : {SEGMENTS_CSV}")
+    else:
+        print("\nAucun segment dÃ©tectÃ©.")
+
+
+if __name__ == "__main__":
+    main()
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\scripts\train_classifier.py -----
+
+import pandas as pd
+from pathlib import Path
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+import matplotlib.pyplot as plt
+import numpy as np
+import joblib
+
+
+# chemins de base
+ROOT = Path(__file__).resolve().parents[1]
+EXP_DIR = ROOT / "experiments" / "exp1"
+FEATURES_PATH = EXP_DIR / "features.csv"
+
+MODELS_DIR = EXP_DIR / "models"
+REPORTS_DIR = EXP_DIR / "reports"
+FIGURES_DIR = ROOT / "assets" / "figures"
+
+MODELS_DIR.mkdir(parents=True, exist_ok=True)
+REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def main():
+    print(f"Chargement des features depuis : {FEATURES_PATH}")
+    df = pd.read_csv(FEATURES_PATH)
+
+    # --- crÃ©ation de la colonne 'species' Ã  partir du nom du fichier ---
+    # "Bird songs\\grive.wav" -> "grive"
+    df["species"] = df["file"].apply(lambda s: Path(s).stem)
+
+    print("\nNombre de segments par espÃ¨ce :")
+    print(df["species"].value_counts())
+
+    # --- dÃ©finition des features X et de la cible y ---
+    drop_cols = ["file", "segment_id", "t_onset_s", "t_offset_s", "species"]
+    feature_cols = [c for c in df.columns if c not in drop_cols]
+
+    X = df[feature_cols].values
+    y = df["species"].values
+
+    print(f"\nNombre de features : {X.shape[1]}")
+    print(f"Nombre total d'Ã©chantillons : {X.shape[0]}")
+
+    # --- train / test split ---
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=0.25,
+        random_state=42,
+        stratify=y,
+    )
+
+    print(f"\nTaille train : {X_train.shape[0]}")
+    print(f"Taille test  : {X_test.shape[0]}")
+
+    # --- pipeline : standardisation + RandomForest ---
+    clf = Pipeline(
+        steps=[
+            ("scaler", StandardScaler()),
+            (
+                "rf",
+                RandomForestClassifier(
+                    n_estimators=300,
+                    random_state=42,
+                    n_jobs=-1,
+                ),
+            ),
+        ]
+    )
+
+    print("\nEntraÃ®nement du modÃ¨le...")
+    clf.fit(X_train, y_train)
+
+    # --- Ã©valuation ---
+    y_pred = clf.predict(X_test)
+
+    report = classification_report(y_test, y_pred)
+    print("\n=== Rapport de classification (test) ===")
+    print(report)
+
+    # sauvegarde du rapport texte
+    report_path = REPORTS_DIR / "rf_segments_report.txt"
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write("RandomForest sur segments (features MFCC + spectre + F0)\n\n")
+        f.write(report)
+
+    print(f"\nRapport sauvegardÃ© -> {report_path}")
+
+    # --- matrice de confusion ---
+    labels = sorted(df["species"].unique())
+    cm = confusion_matrix(y_test, y_pred, labels=labels)
+
+    fig, ax = plt.subplots(figsize=(8, 8))
+    im = ax.imshow(cm, interpolation="nearest")
+    ax.set_title("Matrice de confusion (segments)")
+    fig.colorbar(im, ax=ax)
+
+    ax.set_xticks(np.arange(len(labels)))
+    ax.set_yticks(np.arange(len(labels)))
+    ax.set_xticklabels(labels, rotation=45, ha="right")
+    ax.set_yticklabels(labels)
+
+    ax.set_ylabel("VÃ©ritÃ© terrain")
+    ax.set_xlabel("PrÃ©diction")
+
+    # annotations sur la matrice
+    thresh = cm.max() / 2.0
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            ax.text(
+                j,
+                i,
+                format(cm[i, j], "d"),
+                ha="center",
+                va="center",
+                color="white" if cm[i, j] > thresh else "black",
+            )
+
+    fig.tight_layout()
+    cm_path = FIGURES_DIR / "rf_segments_confusion_matrix.png"
+    fig.savefig(cm_path, dpi=150)
+    plt.close(fig)
+
+    print(f"Matrice de confusion sauvegardÃ©e -> {cm_path}")
+
+    # --- sauvegarde du modÃ¨le ---
+    model_path = MODELS_DIR / "rf_segments.joblib"
+    joblib.dump({"pipeline": clf, "feature_cols": feature_cols}, model_path)
+    print(f"ModÃ¨le sauvegardÃ© -> {model_path}")
+
+
+if __name__ == "__main__":
+    main()
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\detection\segmentation_2d.py -----
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\detection\vad_spectral_flux.py -----
+
+import numpy as np
+import librosa
+from typing import List, Tuple
+
+
+def _compute_spectral_flux(
+    y: np.ndarray,
+    sr: int,
+    n_fft: int,
+    hop_length: int,
+) -> np.ndarray:
+    """
+    Calcule le flux spectral positif frame par frame.
+    """
+    S = np.abs(
+        librosa.stft(
+            y,
+            n_fft=n_fft,
+            hop_length=hop_length,
+            window="hann",
+            center=True,
+        )
+    )  # shape: (freq_bins, frames)
+
+    # DiffÃ©rence entre frames successives
+    diff = np.diff(S, axis=1)
+    # On ne garde que les augmentations (partie positive)
+    diff_pos = np.maximum(diff, 0.0)
+
+    # Flux spectral = norme des diffÃ©rences positives
+    flux = np.sqrt((diff_pos ** 2).sum(axis=0))  # shape: (frames-1,)
+
+    # On insÃ¨re un 0 au dÃ©but pour aligner avec les frames STFT
+    flux = np.concatenate([[0.0], flux])
+
+    return flux
+
+
+def _binarize_flux(
+    flux: np.ndarray,
+    k: float = 2.5,
+    min_duration_s: float = 0.15,
+    hop_length: int = 256,
+    sr: int = 22050,
+) -> np.ndarray:
+    """
+    Seuillage adaptatif simple sur le flux spectral.
+
+    - seuil = mÃ©diane + k * Ã©cart-type
+    - on enlÃ¨ve les segments trop courts (< min_duration_s)
+    """
+    if flux.size == 0:
+        return np.zeros_like(flux, dtype=bool)
+
+    # Normalisation grossiÃ¨re
+    mu = np.median(flux)
+    sigma = np.std(flux)
+    if sigma < 1e-8:
+        sigma = 1e-8
+
+    thresh = mu + k * sigma
+    active = flux > thresh  # bool array
+
+    # Suppression des segments trop courts
+    min_frames = int(np.round(min_duration_s * sr / hop_length))
+    if min_frames <= 1:
+        return active
+
+    # On garde les runs de True suffisamment longs
+    cleaned = np.zeros_like(active, dtype=bool)
+    start = None
+    for i, val in enumerate(active):
+        if val and start is None:
+            start = i
+        elif not val and start is not None:
+            end = i
+            if (end - start) >= min_frames:
+                cleaned[start:end] = True
+            start = None
+    # Fin de sÃ©quence
+    if start is not None:
+        end = len(active)
+        if (end - start) >= min_frames:
+            cleaned[start:end] = True
+
+    return cleaned
+
+
+def activity_to_segments(
+    activity: np.ndarray,
+    sr: int,
+    hop_length: int,
+) -> List[Tuple[float, float]]:
+    """
+    Transforme un masque boolÃ©en frame par frame en liste de segments (t_onset, t_offset).
+    """
+    segments: List[Tuple[float, float]] = []
+    if activity.size == 0:
+        return segments
+
+    start = None
+    for i, val in enumerate(activity):
+        if val and start is None:
+            start = i
+        elif not val and start is not None:
+            end = i
+            t_on = start * hop_length / sr
+            t_off = end * hop_length / sr
+            segments.append((t_on, t_off))
+            start = None
+
+    if start is not None:
+        end = len(activity)
+        t_on = start * hop_length / sr
+        t_off = end * hop_length / sr
+        segments.append((t_on, t_off))
+
+    return segments
+
+
+def merge_segments(
+    segments: List[Tuple[float, float]],
+    min_gap_s: float = 0.10,
+    min_duration_s: float = 0.08,
+) -> List[Tuple[float, float]]:
+    """
+    Regroupe les segments trop proches dans le temps.
+
+    - Si l'Ã©cart entre la fin d'un segment et le dÃ©but du suivant
+      est < min_gap_s, on les fusionne.
+    - AprÃ¨s fusion, on supprime les segments dont la durÃ©e < min_duration_s.
+    """
+    if not segments:
+        return []
+
+    segments = sorted(segments, key=lambda x: x[0])
+
+    merged: List[Tuple[float, float]] = []
+    cur_start, cur_end = segments[0]
+
+    for start, end in segments[1:]:
+        # si le prochain segment est trÃ¨s proche du courant -> fusion
+        if start - cur_end <= min_gap_s:
+            cur_end = max(cur_end, end)
+        else:
+            if (cur_end - cur_start) >= min_duration_s:
+                merged.append((cur_start, cur_end))
+            cur_start, cur_end = start, end
+
+    # dernier segment
+    if (cur_end - cur_start) >= min_duration_s:
+        merged.append((cur_start, cur_end))
+
+    return merged
+
+
+def detect_activity(
+    y: np.ndarray,
+    sr: int,
+    n_fft: int = 1024,
+    hop_length: int = 256,
+    k: float = 0.8,
+    min_duration_s: float = 0.08,
+    raw_min_duration_s: float = 0.03,
+    merge_gap_s: float = 0.10,
+) -> List[Tuple[float, float]]:
+    """
+    Pipeline complet :
+    - calcule le flux spectral
+    - applique un seuillage adaptatif (trÃ¨s sensible)
+    - regroupe les segments proches dans le temps
+    - renvoie une liste de segments (t_onset, t_offset) en secondes.
+
+    min_duration_s : durÃ©e minimale aprÃ¨s fusion
+    raw_min_duration_s : durÃ©e minimale avant fusion (trÃ¨s petite)
+    """
+    # 1) VAD trÃ¨s sensible (petite durÃ©e minimale brute)
+    flux = _compute_spectral_flux(y, sr=sr, n_fft=n_fft, hop_length=hop_length)
+    activity = _binarize_flux(
+        flux,
+        k=k,
+        min_duration_s=raw_min_duration_s,
+        hop_length=hop_length,
+        sr=sr,
+    )
+
+    # 2) Conversion en segments bruts
+    segments = activity_to_segments(activity, sr=sr, hop_length=hop_length)
+
+    # 3) Regroupement temporel
+    segments_merged = merge_segments(
+        segments,
+        min_gap_s=merge_gap_s,
+        min_duration_s=min_duration_s,
+    )
+
+    return segments_merged
+
+def detect_segments_vad(
+    y: np.ndarray,
+    sr: int,
+    n_fft: int = 1024,
+    hop_length: int = 256,
+    threshold: float = 0.8,          # joue le rÃ´le de k
+    smooth_win_s: float = 0.20,      # gardÃ© pour compatibilitÃ©, pas utilisÃ© ici
+    min_syllable_duration_s: float = 0.08,
+    merge_gap_s: float = 0.10,
+    **kwargs,
+):
+    """
+    Wrapper pour compatibilitÃ© avec l'ancienne API `detect_segments_vad`.
+
+    ParamÃ¨tres compatibles avec l'ancien code :
+    - threshold : facteur sur l'Ã©cart-type (Ã©quivalent de k dans `_binarize_flux`)
+    - smooth_win_s : gardÃ© mais non utilisÃ© ici
+    - min_syllable_duration_s : durÃ©e minimale d'une syllabe (utilisÃ©e comme min_duration_s)
+    - merge_gap_s : temps max entre segments pour les fusionner
+
+    `**kwargs` permet d'ignorer proprement d'autres arguments Ã©ventuels
+    passÃ©s par du vieux code.
+    """
+    return detect_activity(
+        y=y,
+        sr=sr,
+        n_fft=n_fft,
+        hop_length=hop_length,
+        k=threshold,
+        # on utilise min_syllable_duration_s comme durÃ©e minimale finale
+        min_duration_s=min_syllable_duration_s,
+        # durÃ©e minimale brute avant fusion : un peu plus courte
+        raw_min_duration_s=min_syllable_duration_s * 0.5,
+        merge_gap_s=merge_gap_s,
+    )
+
+
+
+  
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\detection\__init__.py -----
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\features\f0.py -----
+
+from typing import Dict
+
+import numpy as np
+import librosa
+
+
+def compute_f0_stats(
+    y: np.ndarray,
+    sr: int,
+    fmin: float = 300.0,
+    fmax: float = 8000.0,
+    frame_length: int = 1024,
+    hop_length: int = 256,
+) -> Dict[str, float]:
+    """
+    Estime la frÃ©quence fondamentale f0 sur un segment audio Ã  l'aide de YIN,
+    puis calcule des statistiques globales.
+
+    ParamÃ¨tres
+    ----------
+    y : np.ndarray
+        Signal audio mono (segment).
+    sr : int
+        FrÃ©quence d'Ã©chantillonnage.
+    fmin : float
+        FrÃ©quence minimale attendue (Hz).
+    fmax : float
+        FrÃ©quence maximale attendue (Hz).
+    frame_length : int
+        Longueur de trame pour YIN.
+    hop_length : int
+        DÃ©calage entre trames.
+
+    Retour
+    ------
+    stats : Dict[str, float]
+        ClÃ©s :
+            - f0_mean_hz
+            - f0_std_hz
+            - f0_min_hz
+            - f0_max_hz
+            - f0_voiced_ratio
+    """
+    stats: Dict[str, float] = {}
+
+    if y.size == 0:
+        return stats
+
+    # YIN renvoie un f0 par frame
+    try:
+        f0 = librosa.yin(
+            y=y,
+            fmin=fmin,
+            fmax=fmax,
+            sr=sr,
+            frame_length=frame_length,
+            hop_length=hop_length,
+        )
+    except Exception:
+        # En cas de problÃ¨me numÃ©rique, on renvoie des NaN
+        stats["f0_mean_hz"] = float("nan")
+        stats["f0_std_hz"] = float("nan")
+        stats["f0_min_hz"] = float("nan")
+        stats["f0_max_hz"] = float("nan")
+        stats["f0_voiced_ratio"] = 0.0
+        return stats
+
+    f0 = np.asarray(f0, dtype=np.float64)
+
+    # ConsidÃ©rer comme non-voisÃ© les valeurs <= 0 ou NaN
+    voiced_mask = np.isfinite(f0) & (f0 > 0.0)
+
+    if not np.any(voiced_mask):
+        stats["f0_mean_hz"] = float("nan")
+        stats["f0_std_hz"] = float("nan")
+        stats["f0_min_hz"] = float("nan")
+        stats["f0_max_hz"] = float("nan")
+        stats["f0_voiced_ratio"] = 0.0
+        return stats
+
+    f0_voiced = f0[voiced_mask]
+
+    stats["f0_mean_hz"] = float(np.mean(f0_voiced))
+    stats["f0_std_hz"] = float(np.std(f0_voiced))
+    stats["f0_min_hz"] = float(np.min(f0_voiced))
+    stats["f0_max_hz"] = float(np.max(f0_voiced))
+    stats["f0_voiced_ratio"] = float(f0_voiced.size / f0.size)
+
+    return stats
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\features\mfcc.py -----
+
+from typing import Dict
+
+import numpy as np
+import librosa
+
+
+def compute_mfcc_stats(
+    y: np.ndarray,
+    sr: int,
+    n_mfcc: int = 20,
+    n_fft: int = 1024,
+    hop_length: int = 256,
+) -> Dict[str, float]:
+    """
+    Calcule des MFCC sur un segment audio et renvoie des statistiques
+    (moyenne, Ã©cart-type, min, max) pour chaque coefficient.
+
+    Les clÃ©s retournÃ©es sont du type :
+        - "mfcc_01_mean", "mfcc_01_std", "mfcc_01_min", "mfcc_01_max", etc.
+
+    ParamÃ¨tres
+    ----------
+    y : np.ndarray
+        Signal audio mono (segment).
+    sr : int
+        FrÃ©quence d'Ã©chantillonnage.
+    n_mfcc : int
+        Nombre de coefficients MFCC Ã  calculer.
+    n_fft : int
+        Taille de la FFT (en Ã©chantillons).
+    hop_length : int
+        DÃ©calage entre deux trames (en Ã©chantillons).
+
+    Retour
+    ------
+    stats : Dict[str, float]
+        Dictionnaire de statistiques agrÃ©gÃ©es sur les MFCC.
+    """
+    stats: Dict[str, float] = {}
+
+    if y.size == 0:
+        return stats
+
+    mfcc = librosa.feature.mfcc(
+        y=y,
+        sr=sr,
+        n_mfcc=n_mfcc,
+        n_fft=n_fft,
+        hop_length=hop_length,
+    )  # shape : (n_mfcc, frames)
+
+    for i in range(n_mfcc):
+        coef = mfcc[i, :]
+        prefix = f"mfcc_{i+1:02d}"
+        stats[f"{prefix}_mean"] = float(np.mean(coef))
+        stats[f"{prefix}_std"] = float(np.std(coef))
+        stats[f"{prefix}_min"] = float(np.min(coef))
+        stats[f"{prefix}_max"] = float(np.max(coef))
+
+    return stats
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\features\spectral_stats.py -----
+
+from typing import Dict
+
+import numpy as np
+import librosa
+
+
+def _spectral_entropy(S: np.ndarray, eps: float = 1e-10) -> float:
+    """
+    Entropie spectrale moyenne (en bits) Ã  partir d'un spectrogramme de magnitudes S.
+
+    S : np.ndarray
+        Matrice (freq_bins, frames) de magnitudes.
+    """
+    if S.size == 0:
+        return float("nan")
+
+    # Normalisation par frame pour obtenir une distribution de probas
+    S = S.astype(np.float64)
+    power = S ** 2
+    power_sum = np.sum(power, axis=0, keepdims=True) + eps
+    p = power / power_sum
+
+    # entropie par frame (base 2)
+    entropy = -np.sum(p * np.log2(p + eps), axis=0)
+    return float(np.mean(entropy))
+
+
+def compute_spectral_stats(
+    y: np.ndarray,
+    sr: int,
+    n_fft: int = 1024,
+    hop_length: int = 256,
+) -> Dict[str, float]:
+    """
+    Calcule plusieurs descripteurs spectraux de base sur un segment audio
+    et renvoie des statistiques agrÃ©gÃ©es (moyenne / Ã©cart-type).
+
+    Features :
+        - spectral centroid
+        - spectral bandwidth
+        - spectral rolloff (95%)
+        - spectral flatness
+        - spectral entropy (moyenne)
+
+    ParamÃ¨tres
+    ----------
+    y : np.ndarray
+        Signal audio mono (segment).
+    sr : int
+        FrÃ©quence d'Ã©chantillonnage.
+    n_fft : int
+        Taille de la FFT.
+    hop_length : int
+        DÃ©calage entre trames.
+
+    Retour
+    ------
+    stats : Dict[str, float]
+        Dictionnaire avec les statistiques des features.
+    """
+    stats: Dict[str, float] = {}
+
+    if y.size == 0:
+        return stats
+
+    S = np.abs(
+        librosa.stft(
+            y,
+            n_fft=n_fft,
+            hop_length=hop_length,
+            window="hann",
+            center=True,
+        )
+    )
+
+    # Centroid & bande passante
+    centroid = librosa.feature.spectral_centroid(S=S, sr=sr)[0]
+    bandwidth = librosa.feature.spectral_bandwidth(S=S, sr=sr)[0]
+
+    # Rolloff 95%
+    rolloff = librosa.feature.spectral_rolloff(S=S, sr=sr, roll_percent=0.95)[0]
+
+    # Flatness
+    flatness = librosa.feature.spectral_flatness(S=S)[0]
+
+    # Entropie spectrale moyenne
+    entropy = _spectral_entropy(S)
+
+    def add_basic_stats(name: str, x: np.ndarray) -> None:
+        stats[f"{name}_mean"] = float(np.mean(x))
+        stats[f"{name}_std"] = float(np.std(x))
+
+    add_basic_stats("spec_centroid_hz", centroid)
+    add_basic_stats("spec_bandwidth_hz", bandwidth)
+    add_basic_stats("spec_rolloff95_hz", rolloff)
+    add_basic_stats("spec_flatness", flatness)
+
+    stats["spec_entropy_bits_mean"] = float(entropy)
+
+    return stats
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\features\__init__.py -----
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\io\load_audio.py -----
+
+from pathlib import Path
+from typing import Tuple
+
+import numpy as np
+import soundfile as sf
+import librosa
+
+
+def load_audio(path: Path, target_sr: int) -> Tuple[np.ndarray, int]:
+    """
+    Charge un fichier audio, convertit en mono, resample Ã  target_sr si besoin
+    et normalise l'amplitude entre -1 et 1.
+
+    Retourne:
+        y (np.ndarray): signal mono
+        sr (int): frÃ©quence d'Ã©chantillonnage (target_sr)
+    """
+    path = Path(path)
+
+    # Lecture avec soundfile (prÃ©serve le sr d'origine)
+    y, sr = sf.read(path, always_2d=False)
+
+    # Conversion en mono si nÃ©cessaire
+    if y.ndim == 2:
+        y = np.mean(y, axis=1)
+
+    # Normalisation (Ã©viter division par zÃ©ro)
+    max_abs = np.max(np.abs(y)) if np.max(np.abs(y)) > 0 else 1.0
+    y = y / max_abs
+
+    # Resample si frÃ©quence diffÃ©rente
+    if sr != target_sr:
+        y = librosa.resample(y, orig_sr=sr, target_sr=target_sr)
+        sr = target_sr
+
+    return y.astype(np.float32), sr
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\io\save_audio.py -----
+
+from pathlib import Path
+import soundfile as sf
+import numpy as np
+
+
+def save_audio(path: Path, y: np.ndarray, sr: int) -> None:
+    """
+    Sauvegarde un signal mono au format .wav (float32).
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    sf.write(path, y.astype("float32"), sr)
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\io\__init__.py -----
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\signal\fir_bandpass.py -----
+
+from typing import Tuple
+
+import numpy as np
+from scipy.signal import firwin, filtfilt
+
+
+def design_fir_bandpass(
+    fs: int,
+    lowcut: float,
+    highcut: float,
+    numtaps: int = 1025,
+) -> np.ndarray:
+    """
+    ConÃ§oit un filtre passe-bande FIR Ã  phase linÃ©aire entre lowcut et highcut (Hz).
+    """
+    nyq = 0.5 * fs
+    low = lowcut / nyq
+    high = highcut / nyq
+
+    taps = firwin(
+        numtaps=numtaps,
+        cutoff=[low, high],
+        pass_zero=False,
+        window="hann",
+    )
+    return taps
+
+
+def apply_fir_bandpass(
+    y: np.ndarray,
+    fs: int,
+    lowcut: float,
+    highcut: float,
+    numtaps: int = 1025,
+) -> np.ndarray:
+    """
+    Applique le filtre passe-bande FIR avec filtfilt (zÃ©ro phase).
+    """
+    taps = design_fir_bandpass(fs, lowcut, highcut, numtaps)
+
+    # filtfilt = filtrage aller-retour, pas de dÃ©phasage
+    y_filt = filtfilt(taps, [1.0], y)
+
+    return y_filt.astype(np.float32)
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\signal\noise_reduction.py -----
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\signal\stft.py -----
+
+from pathlib import Path
+from typing import Tuple
+
+import numpy as np
+import librosa
+import librosa.display
+import matplotlib.pyplot as plt
+
+
+def compute_spectrogram(
+    y: np.ndarray,
+    sr: int,
+    n_fft: int,
+    hop_length: int,
+    window: str = "hann",
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """
+    Calcule un spectrogramme en dB.
+
+    Retourne:
+        S_db: matrice (freq x temps) en dB
+        freqs: vecteur des frÃ©quences (Hz)
+        times: vecteur des temps (s)
+    """
+    S = librosa.stft(
+        y,
+        n_fft=n_fft,
+        hop_length=hop_length,
+        window=window,
+        center=True,
+    )
+    S_mag = np.abs(S)
+    S_db = librosa.amplitude_to_db(S_mag, ref=np.max)
+
+    freqs = librosa.fft_frequencies(sr=sr, n_fft=n_fft)
+    times = librosa.frames_to_time(
+        np.arange(S_db.shape[1]), sr=sr, hop_length=hop_length
+    )
+
+    return S_db, freqs, times
+
+
+def save_spectrogram_figure(
+    S_db: np.ndarray,
+    sr: int,
+    hop_length: int,
+    out_path: Path,
+    cmap: str = "magma",
+) -> None:
+    """
+    Sauvegarde un spectrogramme temps-frÃ©quence en image.
+    """
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    plt.figure(figsize=(10, 4))
+    librosa.display.specshow(
+        S_db,
+        sr=sr,
+        hop_length=hop_length,
+        x_axis="time",
+        y_axis="hz",
+        cmap=cmap,
+    )
+    plt.colorbar(format="%+2.0f dB")
+    plt.title("Spectrogramme (STFT)")
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=150)
+    plt.close()
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\signal\__init__.py -----
+
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\config.py -----
+
+from pathlib import Path
+
+# RÃ©pertoire racine du projet (= dossier contenant README.md)
+BASE_DIR = Path(__file__).resolve().parents[1]
+
+# Dossiers de donnÃ©es
+DATA_RAW = BASE_DIR / "data" / "raw"
+DATA_PROCESSED = BASE_DIR / "data" / "processed"
+
+# Dossier pour les figures (spectrogrammes)
+FIGURES_DIR = BASE_DIR / "assets" / "figures"
+
+# ParamÃ¨tres audio gÃ©nÃ©raux
+TARGET_SR = 22050  # Hz, frÃ©quence d'Ã©chantillonnage de travail
+
+# Filtre passe-bande FIR (en Hz)
+BANDPASS_LOW = 400.0
+BANDPASS_HIGH = 8000.0
+FIR_NUMTAPS = 1025  # ordre du filtre + 1 (doit Ãªtre impair de prÃ©fÃ©rence)
+
+# ParamÃ¨tres STFT
+STFT_N_FFT = 1024
+STFT_HOP_LENGTH = 256
+STFT_WINDOW = "hann"
+
+# CrÃ©ation des dossiers si besoin
+DATA_PROCESSED.mkdir(parents=True, exist_ok=True)
+FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+
+----- FICHIER : C:\Users\diego\Biodiversity-Monitoring-Project\src\__init__.py -----
+
+
+=== FIN DU DUMP ===

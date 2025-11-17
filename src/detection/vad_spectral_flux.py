@@ -195,3 +195,44 @@ def detect_activity(
     )
 
     return segments_merged
+
+def detect_segments_vad(
+    y: np.ndarray,
+    sr: int,
+    n_fft: int = 1024,
+    hop_length: int = 256,
+    threshold: float = 0.8,          # joue le rôle de k
+    smooth_win_s: float = 0.20,      # gardé pour compatibilité, pas utilisé ici
+    min_syllable_duration_s: float = 0.08,
+    merge_gap_s: float = 0.10,
+    **kwargs,
+):
+    """
+    Wrapper pour compatibilité avec l'ancienne API `detect_segments_vad`.
+
+    Paramètres compatibles avec l'ancien code :
+    - threshold : facteur sur l'écart-type (équivalent de k dans `_binarize_flux`)
+    - smooth_win_s : gardé mais non utilisé ici
+    - min_syllable_duration_s : durée minimale d'une syllabe (utilisée comme min_duration_s)
+    - merge_gap_s : temps max entre segments pour les fusionner
+
+    `**kwargs` permet d'ignorer proprement d'autres arguments éventuels
+    passés par du vieux code.
+    """
+    return detect_activity(
+        y=y,
+        sr=sr,
+        n_fft=n_fft,
+        hop_length=hop_length,
+        k=threshold,
+        # on utilise min_syllable_duration_s comme durée minimale finale
+        min_duration_s=min_syllable_duration_s,
+        # durée minimale brute avant fusion : un peu plus courte
+        raw_min_duration_s=min_syllable_duration_s * 0.5,
+        merge_gap_s=merge_gap_s,
+    )
+
+
+
+  
+
