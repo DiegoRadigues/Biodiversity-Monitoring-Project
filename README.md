@@ -2,13 +2,15 @@
 # Biodiversity Monitoring Project  
 Analyse automatique de chants d’oiseaux — Filtrage FIR, STFT, spectrogrammes et classification par segments
 
+
+
 ---
 
 ## 1. Contexte et objectifs du projet
 
-Ce projet a été réalisé dans le cadre d’un travail d’analyse de signaux audio appliqué aux chants d’oiseaux.
+Ce projet a été réalisé dans le cadre d’un travail de MaZ de l'ECAM et consiste en une analyse de signaux audio appliqué aux chants d’oiseaux.
 
-L’objectif principal est de construire un **pipeline complet, reproductible et documenté** permettant de :
+L’objectif principal est de construire un pipeline complet, reproductible et documenté permettant de :
 
 1. Charger automatiquement des enregistrements `.wav` d’oiseaux déposés dans `data/raw/`.
 2. Appliquer un **filtre passe-bande FIR à phase linéaire** (bande de référence 400 Hz – 8 kHz).
@@ -19,16 +21,53 @@ L’objectif principal est de construire un **pipeline complet, reproductible et
 7. Entraîner un **classifieur par segments (Random Forest)** afin de distinguer différentes espèces.
 8. Utiliser ce modèle pour prédire l’espèce dominante d’un **nouvel enregistrement `.wav`**.
 
-L’idée est que, à partir de fichiers audio bruts d’oiseaux, on arrive à :
+Le but étant à partir de fichiers audio bruts, de créer :
 
 - des **figures** (spectrogrammes simples et annotés),
 - des **tables** (`segments.csv`, `features.csv`, `predictions_segments.csv`),
 - un **modèle appris** (`rf_segments.joblib`),
 - et un **script de prédiction** pour de nouveaux fichiers.
 
-Ce README sert de **rapport autonome** : il résume la méthode, la structure du dépôt, les choix techniques et présente des exemples de résultats.
+Ce README sert de **rapport et d'évaluation** : il résume la méthode, la structure du dépôt, les choix techniques et présente des exemples de résultats.
 
 ---
+
+### Table des matières
+
+1. [Contexte et objectifs du projet](#1-contexte-et-objectifs-du-projet)  
+
+2. [Installation et environnement](#2-installation-et-environnement)  
+   2.1. [Cloner le dépôt](#21-cloner-le-dépôt)  
+   2.2. [Créer un environnement virtuel (Windows PowerShell)](#22-créer-un-environnement-virtuel-windows-powershell)  
+   2.3. [Installer les dépendances Python](#23-installer-les-dépendances-python)  
+
+3. [Organisation du dépôt](#3-organisation-du-dépôt)  
+   3.1. [Vue d’ensemble](#31-vue-densemble)  
+
+4. [Méthodes et choix de traitement du signal](#4-méthodes-et-choix-de-traitement-du-signal)  
+   4.1. [Filtrage passe-bande FIR (0,4 – 8 kHz)](#41-filtrage-passe-bande-fir-04--8-khz)  
+   4.2. [STFT et spectrogrammes](#42-stft-et-spectrogrammes)  
+   4.3. [Détection d’activité par flux spectral](#43-détection-dactivité-par-flux-spectral)  
+   4.4. [Extraction de features par segment](#44-extraction-de-features-par-segment)  
+   4.5. [Classification par segments (RandomForest)](#45-classification-par-segments-randomforest)  
+
+5. [Exécution du pipeline : scripts et exemples](#5-exécution-du-pipeline--scripts-et-exemples)  
+   5.1. [Étape 1 — Prétraitement et détection de segments](#51-étape-1--prétraitement-et-détection-de-segments)  
+   5.2. [Étape 2 — Extraction de features par segment](#52-étape-2--extraction-de-features-par-segment)  
+   5.3. [Étape 3 — Entraînement du classifieur](#53-étape-3--entraînement-du-classifieur)  
+   5.4. [Étape 4 — Prédiction des segments du dataset](#54-étape-4--prédiction-des-segments-du-dataset)  
+   5.5. [Étape 5 — Visualisation des segments annotés](#55-étape-5--visualisation-des-segments-annotés)  
+   5.6. [Étape 6 — Prédire l’espèce dominante d’un nouveau fichier `.wav`](#56-étape-6--prédire-lespèce-dominante-dun-nouveau-fichier-wav)  
+
+6. [Exemples de figures](#6-exemples-de-figures)  
+
+7. [Limites, pistes d’amélioration et perspectives](#7-limites-pistes-damélioration-et-perspectives)  
+
+8. [Références internes au dépôt](#8-références-internes-au-dépôt)  
+
+9. [Auteurs](#9-auteurs)
+
+
 
 ## 2. Installation et environnement
 
@@ -394,9 +433,11 @@ Bird songs\merle.wav,1,2.473,2.961
 Bird songs\mésange charbonnière.wav,0,2.113,2.322
 Bird songs\mésange charbonnière.wav,1,2.461,2.682
 ...
+```
+<img width="1150" height="270" alt="pipline°output" src="https://github.com/user-attachments/assets/74b92693-c469-46e1-b244-ab498274ab05" />
 
 
-<img width="1150" height="270" alt="pipline°output" src="https://github.com/user-attachments/assets/b2819459-ada4-4f1a-a73f-f02dac074d65" />
+
 
 ### 5.2. Étape 2 — Extraction de features par segment
 
@@ -419,12 +460,12 @@ La structure de `features.csv` :
 file,segment_id,t_onset_s,t_offset_s,duration_s,mfcc_01_mean,mfcc_01_std,...,f0_mean_hz,f0_voiced_ratio
 Bird songs\merle.wav,0,2.194,2.345,0.151,-245.1,12.3,...,3200.5,0.92
 Bird songs\merle.wav,1,2.473,2.961,0.488,-240.8,11.7,...,3150.7,0.89
+```
+
+<img width="508" height="257" alt="extract_features" src="https://github.com/user-attachments/assets/003c8bf8-4ab1-4096-9b68-47326fd6c949" />
 
 
-<img width="1016" height="514" alt="extract_features" src="https://github.com/user-attachments/assets/003c8bf8-4ab1-4096-9b68-47326fd6c949" />
 
-
-...
 
 ### 5.3. Étape 3 — Entraînement du classifieur
 
