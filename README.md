@@ -162,8 +162,8 @@ Pour des détails supplémentaires, se référer à `project_plan/ARBORESCENCE.m
 
 Les choix méthodologiques et les justifications théoriques sont détaillés dans :
 
-- `docs/analyse_filtrage.md`
-- `docs/choix_outils.md`
+- [`docs/analyse_filtrage.md`](docs/analyse_filtrage.md)
+- [`docs/choix_outils.md`](docs/choix_outils.md)
 
 Cette section résume les points principaux.
 
@@ -180,7 +180,7 @@ un **filtre passe-bande FIR à phase linéaire** est utilisé, avec :
 - coupure haute : `BANDPASS_HIGH = 8000.0` Hz  
 - nombre de taps : `FIR_NUMTAPS = 1025`
 
-Implémentation : `src/signal/fir_bandpass.py`
+Implémentation :  [`src/signal/fir_bandpass.py`](src/signal/fir_bandpass.py)
 
 ```python
 from src.signal.fir_bandpass import apply_fir_bandpass
@@ -198,14 +198,14 @@ Le filtrage est appliqué hors temps réel, via `scipy.signal.filtfilt`, ce qui 
 
 ### 4.2. STFT et spectrogrammes
 
-Les paramètres STFT sont centralisés dans `src/config.py` :
+Les paramètres STFT sont centralisés dans [`src/config.py`](src/config.py) :
 
 - `TARGET_SR = 22050` Hz
 - `STFT_N_FFT = 1024`
 - `STFT_HOP_LENGTH = 256`
 - `STFT_WINDOW = "hann"`
 
-Calcul et sauvegarde d’un spectrogramme typique (dans `run_pipeline.py`) :
+Calcul et sauvegarde d’un spectrogramme typique (dans [`scripts/run_pipeline.py`](scripts/run_pipeline.py)) :
 
 ```python
 from src.signal.stft import compute_spectrogram, save_spectrogram_figure
@@ -226,7 +226,7 @@ save_spectrogram_figure(
 )
 ```
 
-Les figures générées sont stockées dans `assets/figures/Bird songs/*_spectrogram.png`.
+Les figures générées sont stockées dans [`assets/figures/Bird%20songs/*_spectrogram.png`](assets/figures/Bird%20songs/).
 
 ### 4.3. Détection d’activité par flux spectral
 
@@ -238,7 +238,7 @@ La détection d’activité (VAD “aviaire”) repose sur le **flux spectral** 
 4. Seuil adaptatif basé sur la médiane et l’écart-type : `seuil = médiane + k·σ`.
 5. Conversion en segments temporels et fusion des segments proches.
 
-Implémentation principale : `src/detection/vad_spectral_flux.py`
+Implémentation principale : [`src/detection/vad_spectral_flux.py`](src/detection/vad_spectral_flux.py)
 
 Fonction utilisée dans le pipeline de base :
 
@@ -255,11 +255,11 @@ segments = detect_activity(
 )
 ```
 
-Chaque segment est ensuite converti en intervalle temporel `(t_onset_s, t_offset_s)` et stocké dans `experiments/exp1/segments.csv`.
+Chaque segment est ensuite converti en intervalle temporel `(t_onset_s, t_offset_s)` et stocké dans [`experiments/exp1/segments.csv`](experiments/exp1/segments.csv).
 
 ### 4.4. Extraction de features par segment
 
-Les features sont calculées pour chaque segment audio détecté (voir `scripts/extract_features.py`).  
+Les features sont calculées pour chaque segment audio détecté (voir [`scripts/extract_features.py`](scripts/extract_features.py)).  
 Lors de l’extraction, on charge d’abord l’audio filtré complet (`*_bandpass.wav`), puis on découpe selon les timestamps des segments.
 
 Pour chaque segment, on calcule :
@@ -269,7 +269,7 @@ Pour chaque segment, on calcule :
    - Agrégation : moyenne, écart-type, min, max pour chaque coefficient  
    → environ 80 colonnes au total pour les MFCC
 
-2. **Descripteurs spectraux** (`src/features/spectral_stats.py`)  
+2. **Descripteurs spectraux** ([`src/features/spectral_stats.py`](src/features/spectral_stats.py))  
    - centroid spectral
    - bande passante
    - rolloff (95 %)
@@ -277,7 +277,7 @@ Pour chaque segment, on calcule :
    - entropie spectrale moyenne  
    → moyenne et écart-type pour certains, soit plusieurs colonnes additionnelles
 
-3. **Fréquence fondamentale F0** (`src/features/f0.py`)  
+3. **Fréquence fondamentale F0** ([`src/features/f0.py`](src/features/f0.py))  
    - estimation par l’algorithme YIN (`librosa.yin`)
    - `f0_mean_hz`, `f0_std_hz`, `f0_min_hz`, `f0_max_hz`
    - `f0_voiced_ratio` (proportion de frames voisées)
@@ -305,7 +305,7 @@ def extract_features_for_segment(y, sr):
     return features
 ```
 
-Les résultats sont sauvegardés dans `experiments/exp1/features.csv` avec au minimum les colonnes :
+Les résultats sont sauvegardés dans [`experiments/exp1/features.csv`](experiments/exp1/features.csv) avec au minimum les colonnes :
 
 - `file`, `segment_id`, `t_onset_s`, `t_offset_s`, `duration_s`
 - `mfcc_01_mean`, `mfcc_01_std`, ..., `mfcc_20_max`
@@ -316,7 +316,7 @@ Les résultats sont sauvegardés dans `experiments/exp1/features.csv` avec au mi
 
 Un classifieur standard de type **RandomForest** est entraîné à partir des features.
 
-Script : `scripts/train_classifier.py`
+Script : [`scripts/train_classifier.py`](scripts/train_classifier.py)
 
 Pipeline utilisé :
 
@@ -342,11 +342,11 @@ clf = Pipeline(
 2. Séparation en train / test (25 % test, stratifié par espèce).  
 3. Entraînement du modèle.  
 4. Calcul d’un **rapport de classification** (F1, précision, rappel par classe).  
-5. Calcul et sauvegarde d’une **matrice de confusion** dans `assets/figures/rf_segments_confusion_matrix.png`.  
-6. Sauvegarde du modèle dans `experiments/exp1/models/rf_segments.joblib` avec la liste des colonnes de features (`feature_cols`).
+5. Calcul et sauvegarde d’une **matrice de confusion** dans [`assets/figures/rf_segments_confusion_matrix.png`](assets/figures/rf_segments_confusion_matrix.png).  
+6. Sauvegarde du modèle dans [`experiments/exp1/models/rf_segments.joblib`](experiments/exp1/models/rf_segments.joblib) avec la liste des colonnes de features (`feature_cols`).
 
 Le rapport texte complet est enregistré dans :  
-`experiments/exp1/reports/rf_segments_report.txt`.
+[`experiments/exp1/reports/rf_segments_report.txt`](experiments/exp1/reports/rf_segments_report.txt).
 
 ---
 
@@ -363,21 +363,40 @@ python scripts/run_pipeline.py
 
 Effets principaux :
 
-- lecture des fichiers `.wav` dans `data/raw/Bird songs/`
-- filtrage passe-bande FIR
-- sauvegarde des audios filtrés dans `data/processed/Bird songs/*_bandpass.wav`
-- calcul et sauvegarde des spectrogrammes dans `assets/figures/Bird songs/*_spectrogram.png`
-- détection de segments et création de `experiments/exp1/segments.csv`
+- lecture des **10 fichiers `.wav`** dans `data/raw/Bird songs/`
+- filtrage passe-bande FIR et sauvegarde des audios filtrés dans  
+  `data/processed/Bird songs/*_bandpass.wav`
+- calcul et sauvegarde des spectrogrammes dans  
+  `assets/figures/Bird songs/*_spectrogram.png`
+- détection des segments et création de `experiments/exp1/segments.csv`
 
-Exemple de contenu de `segments.csv` (extrait simplifié) :
+Sur ce dataset, on obtient au total **115 segments détectés**, répartis par fichier comme suit :
+
+- `grive.wav` : 12 segments (durée ≈ 11.46 s)
+- `merle.wav` : 8 segments (durée ≈ 13.62 s)
+- `mésange charbonnière.wav` : 23 segments (durée ≈ 13.20 s)
+- `pic vert.wav` : 5 segments (durée ≈ 13.10 s)
+- `pie.wav` : 12 segments (durée ≈ 14.06 s)
+- `pigeon.wav` : 15 segments (durée ≈ 12.95 s)
+- `pinson.wav` : 5 segments (durée ≈ 14.30 s)
+- `rouge-gorge.wav` : 7 segments (durée ≈ 13.12 s)
+- `sitelle torchepot.wav` : 10 segments (durée ≈ 14.49 s)
+- `tourterelle.wav` : 18 segments (durée ≈ 13.31 s)
+
+Contenu de `segments.csv` :
 
 ```csv
 file,segment_id,t_onset_s,t_offset_s
-Bird songs/merle.wav,0,0.35,0.72
-Bird songs/merle.wav,1,0.90,1.25
-Bird songs/grive.wav,0,0.40,0.78
+Bird songs\grive.wav,0,1.660,2.055
+Bird songs\grive.wav,1,2.635,3.042
+Bird songs\merle.wav,0,2.194,2.345
+Bird songs\merle.wav,1,2.473,2.961
+Bird songs\mésange charbonnière.wav,0,2.113,2.322
+Bird songs\mésange charbonnière.wav,1,2.461,2.682
 ...
-```
+
+
+<img width="1150" height="270" alt="pipline°output" src="https://github.com/user-attachments/assets/b2819459-ada4-4f1a-a73f-f02dac074d65" />
 
 ### 5.2. Étape 2 — Extraction de features par segment
 
@@ -389,19 +408,23 @@ python scripts/extract_features.py
 
 Ce script :
 
-- lit `experiments/exp1/segments.csv`,
+- lit `experiments/exp1/segments.csv` (ici **115 segments**),
 - charge les audios filtrés correspondants (`*_bandpass.wav`),
 - découpe les segments, calcule les features,
-- sauvegarde le résultat dans `experiments/exp1/features.csv`.
+- sauvegarde le résultat dans `experiments/exp1/features.csv` (**115 lignes** et **99 colonnes**).
 
-Exemple (structure partielle de `features.csv`) :
+La structure de `features.csv` :
 
 ```csv
 file,segment_id,t_onset_s,t_offset_s,duration_s,mfcc_01_mean,mfcc_01_std,...,f0_mean_hz,f0_voiced_ratio
-Bird songs/merle.wav,0,0.35,0.72,0.37,-245.1,12.3,...,3200.5,0.92
-Bird songs/merle.wav,1,0.90,1.25,0.35,-240.8,11.7,...,3150.7,0.89
+Bird songs\merle.wav,0,2.194,2.345,0.151,-245.1,12.3,...,3200.5,0.92
+Bird songs\merle.wav,1,2.473,2.961,0.488,-240.8,11.7,...,3150.7,0.89
+
+
+<img width="1016" height="514" alt="extract_features" src="https://github.com/user-attachments/assets/003c8bf8-4ab1-4096-9b68-47326fd6c949" />
+
+
 ...
-```
 
 ### 5.3. Étape 3 — Entraînement du classifieur
 
@@ -421,38 +444,55 @@ Ce script :
   - `experiments/exp1/reports/rf_segments_report.txt`
   - `assets/figures/rf_segments_confusion_matrix.png`
   - `experiments/exp1/models/rf_segments.joblib`
-
-Extrait typique de la sortie console (simplifié) :
-
 ```text
-Chargement des features depuis : experiments/exp1/features.csv
+Chargement des features depuis : experiments\exp1\features.csv
 
 Nombre de segments par espèce :
-merle              45
-grive              42
-mésange charbonnière 39
-...
+species
+mésange charbonnière    23
+tourterelle             18
+pigeon                  15
+grive                   12
+pie                     12
+sitelle torchepot       10
+merle                    8
+rouge-gorge              7
+pic vert                 5
+pinson                   5
+Name: count, dtype: int64
 
-Nombre de features : 120
-Nombre total d'échantillons : 200
+Nombre de features : 95
+Nombre total d'échantillons : 115
 
-Taille train : 150
-Taille test  : 50
+Taille train : 86
+Taille test  : 29
 
 Entraînement du modèle...
 
 === Rapport de classification (test) ===
-              precision    recall  f1-score   support
+                      precision    recall  f1-score   support
 
-       grive       0.90      0.90      0.90        10
-       merle       0.89      0.89      0.89         9
-        ...       ...       ...       ...       ...
+               grive       1.00      1.00      1.00         3
+               merle       1.00      1.00      1.00         2
+mésange charbonnière       1.00      1.00      1.00         6
+            pic vert       1.00      1.00      1.00         1
+                 pie       1.00      1.00      1.00         3
+              pigeon       1.00      0.75      0.86         4
+              pinson       0.50      1.00      0.67         1
+         rouge-gorge       1.00      0.50      0.67         2
+   sitelle torchepot       1.00      1.00      1.00         2
+         tourterelle       0.83      1.00      0.91         5
 
-accuracy                           0.90        50
+            accuracy                           0.93        29
+           macro avg       0.93      0.93      0.91        29
+        weighted avg       0.95      0.93      0.93        29
+
+Rapport sauvegardé -> experiments\exp1\reports\rf_segments_report.txt
+Matrice de confusion sauvegardée -> assets\figures\rf_segments_confusion_matrix.png
+Modèle sauvegardé -> experiments\exp1\models\rf_segments.joblib
+
 ```
 
-La matrice de confusion finale est sauvegardée sous forme d’image :  
-`assets/figures/rf_segments_confusion_matrix.png`.
 
 ### 5.4. Étape 4 — Prédiction des segments du dataset
 
@@ -493,6 +533,9 @@ Ce script produit des images dans `assets/figures_annotated/`, par exemple :
 
 - `assets/figures_annotated/merle_segments.png`
 - `assets/figures_annotated/grive_segments.png`
+
+<img width="1500" height="600" alt="grive_segments" src="https://github.com/user-attachments/assets/f0cb3e5d-7d33-4964-b65d-bf052d3ab91d" />
+
 
 Ces figures montrent les zones détectées (segments) en superposition sur le spectrogramme.
 
