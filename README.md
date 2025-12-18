@@ -8,7 +8,7 @@ Analyse automatique de chants d’oiseaux — Filtrage FIR, STFT, spectrogrammes
 
 ## 1. Contexte et objectifs du projet
 
-Ce projet a été réalisé dans le cadre d’un travail de MaZ de l'ECAM et consiste en une analyse de signaux audio appliqué aux chants d’oiseaux.
+Ce projet a été réalisé dans le cadre d’un travail de Ma2 de l'ECAM et consiste en une analyse de signaux audio appliqué aux chants d’oiseaux.
 
 L’objectif principal est de construire un pipeline complet, reproductible et documenté permettant de :
 
