@@ -65,7 +65,5 @@ Biodiversity-Monitoring-Project/
 - **scripts/extract_features.py** : lit `segments.csv`, **extrait** les features, sauvegarde `features.csv`.
 - **experiments/exp1/** : premier run reproductible avec **résultats** et **figures**.
 
-> Pas de dossiers “notebooks”/“models”/“reports” ici pour rester minimal : ajoutez-les **uniquement** si vous en avez besoin.
-
 ---
 
